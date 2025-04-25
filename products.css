@@ -1,0 +1,47 @@
+@import url('./global.css');
+
+/* page header */
+
+@media(max-width: 500px) {
+    /*  */
+}
+
+.page-header{
+    position: relative;
+    width: 100%;
+    height: 60vh;
+}
+
+.page-header .page-header-text-wrapper{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-60%);
+    left: 10%;
+    color: white;
+}
+
+.page-header .page-header-text-wrapper h2{
+    margin-left: 1rem;
+    font-style: italic;
+}
+
+@media(max-width: 500px) {
+    .page-header .page-header-text-wrapper h2{
+        width: 50%;
+    }
+}
+
+/* Card list */
+
+.card-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    gap: 0.5rem;
+}
+
+.icecream-list-wrapper a{
+    align-self: flex-end;
+}
