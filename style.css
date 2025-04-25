@@ -49,9 +49,10 @@
 .icecream-card-wrapper{
     width: 100%;
     max-width: calc(300px - .5rem);
-    background-color: white;
+    background-color: var(--background-color);
     border-radius: 8px;
     overflow: hidden;
+    border: 1.5px solid var(--border);
 }
 
 .icecream-card-wrapper .card-footer{
@@ -74,6 +75,7 @@
 /* about */
 
 .about-wrapper{
+    background-color: var(--background-color);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -85,6 +87,8 @@
 }
 
 .about-wrapper .text-wrapper{
+    padding-top: 2rem;
+
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -93,4 +97,32 @@
 
 .about-wrapper .text-wrapper p{
     width: 70%;
+}
+
+/* footer */
+
+footer{
+    width: 100%;
+    background-color: var(--background-dark-color);
+    color: white;
+}
+
+footer > div{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5rem 2rem;
+}
+
+footer > div .logo-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+footer > div nav{
+    display: flex;
+    flex-direction: column !important;
+    width: 40%;
 }
