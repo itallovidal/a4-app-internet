@@ -2,6 +2,10 @@
 
 /* page header */
 
+@media(max-width: 500px) {
+    /*  */
+}
+
 .page-header{
     position: relative;
     width: 100%;
@@ -19,6 +23,12 @@
 .page-header .page-header-text-wrapper h2{
     margin-left: 1rem;
     font-style: italic;
+}
+
+@media(max-width: 500px) {
+    .page-header .page-header-text-wrapper h2{
+        width: 50%;
+    }
 }
 
 /* Card list */
@@ -60,4 +70,24 @@
 
 .about-wrapper .text-wrapper p{
     width: 70%;
+}
+
+@media(max-width: 500px) {
+    .about-wrapper{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 4rem;
+    }
+
+    .about-wrapper picture{
+        width: 100%;
+    }
+    .about-wrapper .text-wrapper{
+        width: 90%;
+    }
+
+    .about-wrapper .text-wrapper p{
+        width: 100%;
+    }
 }
