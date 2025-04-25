@@ -14,3 +14,23 @@
     align-items: center;
     gap: 1rem;
 }
+
+/* page header */
+
+.page-header{
+    position: relative;
+    width: 100%;
+    height: 60vh;
+}
+
+.page-header .page-header-text-wrapper{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: white;
+}
+
+.page-header .page-header-text-wrapper h2{
+    margin-left: 1rem;
+    font-style: italic;
+}
