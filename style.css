@@ -25,7 +25,8 @@
 
 .page-header .page-header-text-wrapper{
     position: absolute;
-    top: 10%;
+    top: 50%;
+    transform: translateY(-60%);
     left: 10%;
     color: white;
 }
@@ -33,4 +34,39 @@
 .page-header .page-header-text-wrapper h2{
     margin-left: 1rem;
     font-style: italic;
+}
+
+/* Card list */
+
+.card-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.icecream-card-wrapper{
+    width: 100%;
+    max-width: calc(300px - .5rem);
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.icecream-card-wrapper .card-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.icecream-list-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.icecream-list-wrapper a{
+    align-self: flex-end;
 }

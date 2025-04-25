@@ -15,6 +15,7 @@ a, button{
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     transition: 500ms;
+    width: fit-content;
 }
 
 a:hover, button:hover{
@@ -40,14 +41,14 @@ a.btn-primary:hover, button.btn-primary:hover{
 }
 
 body{
-    background-color: green;
+    background-color: var(--background-color);
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .content-wrapper-size{
     width: 100%;
     max-width: 900px;
-    margin: auto;
+    margin-inline: auto;
 }
 
 picture{
@@ -66,7 +67,7 @@ h1.hero, h2.hero {
     font-family: "Lily Script One", system-ui;
     font-weight: 400;
     font-style: normal;
-    font-size: 64px;
+    font-size: 4rem;
 }
 
 h1, h2, p, a, button{
@@ -76,22 +77,31 @@ h1, h2, p, a, button{
     font-style: normal;
 }
 
+h1.heading{
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
 h2.heading{  
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 500;
 }
 
 h3.subheading{
-    font-size: 28px;
+    font-size: 1.75rem;
 }
 
 a.text-regular, p.text-regular{
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 1.5;
 }
 
 p.text-small{
-    font-size: 16px;
+    font-size: .8rem;
     line-height: 1.5;
 }
 
+
+article{
+    margin-block: 5rem;
+}
