@@ -5,29 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
 
-    <!-- CSS Global -->
-    <link rel="stylesheet" href="global.css">
-
-    <!-- Fonte Estilizada -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap" rel="stylesheet">
-
-    <!-- Fonte De texto -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+    <?php include './head.php'; ?>
     <title>Página Home</title>
 </head>
 <body>
-    <div id="navbar-wrapper">
-        <nav id="top-navbar" class="content-wrapper-size">
-            <a class="text-regular btn-primary" href="http://">Home</a>
-            <a class="text-regular btn-primary" href="http://">Sobre</a>
-            <a class="text-regular btn-primary" href="http://">Sorvetes</a>
-            <a class="text-regular btn-primary" href="http://">Novidades</a>
-        </nav>
-    </div>
+    <?php include './navbar.php'; ?>
 
     <main>
         <div class="page-header">
@@ -91,20 +73,6 @@
         </article>
     </main>
 
-    <footer>
-        <div class="content-wrapper-size">
-            <nav>
-                <a class="btn-ghost" href="http://">Home</a>
-                <a class="btn-ghost" href="http://">Sobre</a>
-                <a class="btn-ghost" href="http://">Sorvetes</a>
-                <a class="btn-ghost" href="http://">Novidades</a>
-            </nav>
-    
-            <div class="logo-wrapper">
-                <h1 class="heading styled-font">Fábrica de Delícias</h1>
-                <h2 class="subheading">Sonhos gelados feitos com amor</h2>
-            </div>
-        </div>
-    </footer>
+    <?php include './footer.php'; ?>
 </body>
 </html>
