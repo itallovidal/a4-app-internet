@@ -2,16 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <?php include './head.php'; ?>
-    <link rel="stylesheet" href="news.css">
-    <title>Página Home</title>
+    <?php include './partials/head.php'; ?>
+    <link rel="stylesheet" href="/public/style/news.css">
+    <title>Página News</title>
 </head>
 
 <body>
-    <?php include './navbar.php'; ?>
+    <?php include './partials/navbar.php'; ?>
 
     <main>
 
@@ -21,7 +18,7 @@
             <div class="card-list-preview">
                 <div class="card-preview">
                     <picture>
-                        <img src="./public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae explicabo modi commodi sit quod laudantium mollitia blanditiis neque, minima quam quia dolor id architecto saepe perferendis placeat deserunt non sint.</p>
@@ -30,7 +27,7 @@
 
                 <div class="card-preview">
                     <picture>
-                        <img src="./public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae explicabo modi commodi sit quod laudantium mollitia blanditiis neque, minima quam quia dolor id architecto saepe perferendis placeat deserunt non sint.</p>
@@ -42,7 +39,7 @@
 
         <article class="about-wrapper">
             <picture>
-                <img src="./public/assets/index_banner.jpg" alt="">
+                <img src="./a4-app-internet/public/assets/index_banner.jpg" alt="">
             </picture>
             <div class="text-wrapper">
                 <h1 class="heading">Uma nova Loja está por vir</h1>
@@ -53,7 +50,7 @@
 
     </main>
 
-    <?php include './footer.php'; ?>
+    <?php include './partials/footer.php'; ?>
 </body>
 
 </html>
