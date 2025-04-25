@@ -1,0 +1,21 @@
+@import url('./global.css');
+
+.news {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    gap: 100px;
+}
+
+.news img {
+    width: 500px;
+    justify-content: center;
+}
+
+.news p {
+    width: 50rem;
+    text-indent: 4px;
+    text-align: justify;
+}
+
