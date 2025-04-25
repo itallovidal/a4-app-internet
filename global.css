@@ -4,7 +4,12 @@
     --background-color: #FDFAF6; 
     --border: #f7e3ca; 
     --background-dark-color: #3D3D3D; 
+}
 
+@media(max-width: 500px) {
+    :root{
+        font-size: 12px;
+    }
 }
 
 *{
@@ -60,7 +65,7 @@ body{
 }
 
 .content-wrapper-size{
-    width: 100%;
+    width: 90%;
     max-width: 900px;
     margin-inline: auto;
 }
@@ -128,6 +133,13 @@ main{
     gap: 10rem;
 }
 
+
+@media(max-width: 500px) {
+    main{
+        gap: 2rem;
+    }
+}
+
 /* topnavar */
 
 #navbar-wrapper{
@@ -143,6 +155,12 @@ main{
     gap: 1rem;
 }
 
+@media(max-width: 500px) {
+    #navbar-wrapper #top-navbar{
+        justify-content: center;
+    }
+}
+
 /* card */
 
 .icecream-card-wrapper{
@@ -152,6 +170,13 @@ main{
     border-radius: 8px;
     overflow: hidden;
     border: 1.5px solid var(--border);
+}
+
+@media(max-width: 500px) {
+    .icecream-card-wrapper{
+        max-width: none;
+        margin-bottom: 1rem;
+    }
 }
 
 .icecream-card-wrapper .card-footer{
