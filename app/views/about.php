@@ -1,15 +1,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php include './head.php'; ?>
-    <link rel="stylesheet" href="about.css">
-    <title>Página Home</title>
+    <?php include './partials/head.php'; ?>
+    <link rel="stylesheet" href="/public/style/about.css">
+    <title>Página Sobre</title>
 </head>
 
 <body>
-    <?php include './navbar.php'; ?>
+    <?php include './partials/navbar.php'; ?>
     <main>
         <article class="content-wrapper-size about">
             <img src="teste.jpg" alt="">
@@ -59,7 +57,7 @@
             </div>
         </article>
     </main>
-    <?php include './footer.php'; ?>
+    <?php include './partials/footer.php'; ?>
 </body>
 
 </html>

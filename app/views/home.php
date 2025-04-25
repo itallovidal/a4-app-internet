@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-
-    <?php include './head.php'; ?>
+    <?php include 'partials/head.php'; ?>
+    <link rel="stylesheet" href="<?= base_url('style/index.css') ?>">
     <title>Página Home</title>
 </head>
 <body>
-    <?php include './navbar.php'; ?>
+    <?php include 'partials/navbar.php'; ?>
 
     <main>
         <div class="page-header">
@@ -18,7 +15,7 @@
                 <h2 class="heading">Sonhos gelados feitos com amor</h2>
             </div>
             <picture class="page-header-image-wrapper">
-                <img src="./public/assets/index_banner.jpg" alt="foto de sorvete">
+                <img src="<?= base_url('assets/index_banner.jpg') ?>" alt="foto de sorvete">
             </picture>
         </div>
 
@@ -28,7 +25,7 @@
             <div class="card-list">
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -38,7 +35,7 @@
 
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -48,7 +45,7 @@
 
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -62,7 +59,7 @@
 
         <article class="about-wrapper">
             <picture>
-                <img src="./public/assets/index_banner.jpg" alt="">
+                <img src="<?= base_url('assets/index_banner.jpg') ?>" alt="">
             </picture>
             <div class="text-wrapper">
                 <h1 class="heading">Sobre nós</h1>
@@ -73,6 +70,6 @@
         </article>
     </main>
 
-    <?php include './footer.php'; ?>
+    <?php include 'partials/footer.php'; ?>
 </body>
 </html>
