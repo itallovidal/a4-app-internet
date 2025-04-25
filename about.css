@@ -1,21 +1,18 @@
 @import url('./global.css');
 
-.news {
+.about {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 5%;
-    gap: 100px;
+    align-items: center;
 }
 
-.news img {
+.about img {
     width: 500px;
     justify-content: center;
 }
 
-.news p {
-    width: 50rem;
-    text-indent: 4px;
-    text-align: justify;
+.info p {
+    width: 100%;
+    text-indent: 10px;
 }
-
