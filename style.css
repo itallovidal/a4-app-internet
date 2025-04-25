@@ -1,0 +1,16 @@
+@import url('./global.css');
+
+/* topnavar */
+
+#navbar-wrapper{
+    width: 100%;
+    padding-block: 1rem;
+    background-color: var(--primary-color);
+}
+
+#navbar-wrapper #top-navbar{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+}
