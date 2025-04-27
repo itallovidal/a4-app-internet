@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include './partials/head.php'; ?>
-    <link rel="stylesheet" href="/public/style/products.css">
+    <?php include 'partials/head.php'; ?>
+    <link rel="stylesheet" href="<?= base_url('style/products.css') ?>">
     <title>Página Sorvetes</title>
 </head>
 <body>
-    <?php include './partials/navbar.php'; ?>
+    <?php include 'partials/navbar.php'; ?>
 
     <main>
         <div class="page-header">
@@ -15,7 +15,7 @@
                 <h2 class="heading">Sonhos gelados feitos com amor</h2>
             </div>
             <picture class="page-header-image-wrapper">
-                <img src="./a4-app-internet/public/assets/index_banner.jpg" alt="foto de sorvete">
+                <img src="<?= base_url('assets/index_banner.jpg') ?>" alt="foto de sorvete">
             </picture>
         </div>
 
@@ -25,7 +25,7 @@
             <div class="card-list">
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -35,7 +35,7 @@
 
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -45,7 +45,7 @@
 
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -90,7 +90,7 @@
                 </div>
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="./a4-app-internet/a4-app-internet/a4-app-internet/a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Nome do produto</p>
@@ -112,6 +112,6 @@
 
     </main>
 
-    <?php include './partials/footer.php'; ?>
+    <?php include 'partials/footer.php'; ?>
 </body>
 </html>
