@@ -54,7 +54,7 @@
                 </div>
             </div>
 
-            <a href="#" class="btn-primary">ver mais sorvetes</a>
+            <a href="<?= base_url('products'); ?>" class="btn-primary">ver mais sorvetes</a>
         </article>
 
         <article class="about-wrapper">
@@ -65,7 +65,7 @@
                 <h1 class="heading">Sobre nós</h1>
                 <p class="text-regular">Na Fábrica de Delícias, acreditamos que cada sabor tem o poder de despertar memórias e criar novos momentos especiais. Produzimos nossos sorvetes com ingredientes selecionados, muito carinho e um toque de criatividade que transforma o simples em inesquecível. </p>
                 <p class="text-regular">Aqui, cada receita é pensada para encantar desde a primeira colherada até o último pedacinho. Nosso compromisso é entregar qualidade, frescor e um atendimento que faz você se sentir em casa.</p>
-                <a href="#" class="btn-primary">Saiba mais</a>
+                <a href="<?= base_url('news'); ?>" class="btn-primary">Saiba mais</a>
             </div>
         </article>
     </main>
