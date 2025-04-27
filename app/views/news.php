@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <?php include './partials/head.php'; ?>
-    <link rel="stylesheet" href="/public/style/news.css">
+    <?php include 'partials/head.php'; ?>
+    <link rel="stylesheet" href="<?= base_url('style/news.css') ?>">
     <title>Página News</title>
 </head>
 
 <body>
-    <?php include './partials/navbar.php'; ?>
+    <?php include 'partials/navbar.php'; ?>
 
     <main>
 
@@ -18,7 +18,7 @@
             <div class="card-list-preview">
                 <div class="card-preview">
                     <picture>
-                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae explicabo modi commodi sit quod laudantium mollitia blanditiis neque, minima quam quia dolor id architecto saepe perferendis placeat deserunt non sint.</p>
@@ -27,7 +27,7 @@
 
                 <div class="card-preview">
                     <picture>
-                        <img src="./a4-app-internet/public/assets/icecreams/ice_cream_01.jpg" alt="">
+                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
                     </picture>
                     <div class="card-footer">
                         <p class="text-regular">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae explicabo modi commodi sit quod laudantium mollitia blanditiis neque, minima quam quia dolor id architecto saepe perferendis placeat deserunt non sint.</p>
@@ -39,7 +39,7 @@
 
         <article class="about-wrapper">
             <picture>
-                <img src="./a4-app-internet/public/assets/index_banner.jpg" alt="">
+                <img src="<?= base_url('assets/index_banner.jpg') ?>" alt="">
             </picture>
             <div class="text-wrapper">
                 <h1 class="heading">Uma nova Loja está por vir</h1>
@@ -50,7 +50,7 @@
 
     </main>
 
-    <?php include './partials/footer.php'; ?>
+    <?php include 'partials/footer.php'; ?>
 </body>
 
 </html>
