@@ -5,13 +5,9 @@ class Router {
         require_once __DIR__ . '/helper.php';
         $url = isset($_GET['url']) ? $_GET['url'] : 'home/index';
         
-        if (empty($url)) {
-            $url = 'home/index';
-        }
-        
         [$controllerName, $method] = explode('/', $url) + [1 => 'index'];
 
-        $controllerName = ucfirst($controllerName) . 'Controller';
+        $controllerName = $controllerName . 'Controller';
         $path = "../app/controllers/$controllerName.php";
 
         if (file_exists($path)) {

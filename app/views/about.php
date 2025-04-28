@@ -1,13 +1,14 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php include './partials/head.php'; ?>
-    <link rel="stylesheet" href="/public/style/about.css">
+    <?php include 'partials/head.php'; ?>
+    <link rel="stylesheet" href="<?= base_url('style/about.css') ?>">
     <title>Página Sobre</title>
 </head>
 
 <body>
-    <?php include './partials/navbar.php'; ?>
+    <?php include 'partials/navbar.php'; ?>
     <main>
         <article class="content-wrapper-size about">
             <img src="teste.jpg" alt="">
@@ -57,7 +58,7 @@
             </div>
         </article>
     </main>
-    <?php include './partials/footer.php'; ?>
+    <?php include 'partials/footer.php'; ?>
 </body>
 
 </html>
