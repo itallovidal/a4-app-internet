@@ -36,7 +36,22 @@
 
         </article>
 
-
+        <article class="news-wrapper content-wrapper-size">
+        <h1 class="heading">Novidades</h1>
+            <div class="news-card">
+                <picture>
+                    <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
+                </picture>
+                <div class="card-content">
+                    <h1>Nome da noticia</h1>
+                    <p class="text-description text-regular">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.</p>
+               
+                    <button type="button" class="btn-primary"> Ver mais 
+                    <i class="fas fa chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </article>
 
     </main>
 
