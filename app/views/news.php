@@ -11,7 +11,6 @@
     <?php include 'partials/navbar.php'; ?>
 
     <main>
-
         <article class="icecream-list-wrapper content-wrapper-size">
             <h1 class="heading">Ultimos Lançamentos</h1>
 
@@ -37,16 +36,7 @@
 
         </article>
 
-        <article class="about-wrapper">
-            <picture>
-                <img src="<?= base_url('assets/index_banner.jpg') ?>" alt="">
-            </picture>
-            <div class="text-wrapper">
-                <h1 class="heading">Uma nova Loja está por vir</h1>
-                <p class="text-regular">Na Fábrica de Delícias, acreditamos que cada sabor tem o poder de despertar memórias e criar novos momentos especiais. Produzimos nossos sorvetes com ingredientes selecionados, muito carinho e um toque de criatividade que transforma o simples em inesquecível. </p>
-                <p class="text-regular">Aqui, cada receita é pensada para encantar desde a primeira colherada até o último pedacinho. Nosso compromisso é entregar qualidade, frescor e um atendimento que faz você se sentir em casa.</p>
-            </div>
-        </article>
+
 
     </main>
 
