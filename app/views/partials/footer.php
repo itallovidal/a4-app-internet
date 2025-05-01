@@ -1,10 +1,10 @@
 <footer>
     <div class="content-wrapper-size">
         <nav>
-            <a class="btn-ghost" href="http://">Home</a>
-            <a class="btn-ghost" href="http://">Sobre</a>
-            <a class="btn-ghost" href="http://">Sorvetes</a>
-            <a class="btn-ghost" href="http://">Novidades</a>
+            <a class="btn-ghost" href="<?php echo base_url('home'); ?>">Home</a>
+            <a class="btn-ghost" href="<?php echo base_url('about'); ?>">Sobre</a>
+            <a class="btn-ghost" href="<?php echo base_url('products'); ?>">Sorvetes</a>
+            <a class="btn-ghost" href="<?php echo base_url('news'); ?>">Novidades</a>
         </nav>
 
         <div class="logo-wrapper">
