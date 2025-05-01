@@ -40,7 +40,7 @@
                         <h1><?= $new->getName() ?></h1>
                         <p class="text-description text-regular"><?= $new->getDescription() ?></p>
 
-                        <a type="button" class="btn-primary"> Ver mais
+                        <a class="btn-primary" href=""> Ver mais
                             <i class="fas fa chevron-right"></i>
                         </a>
                     </div>
