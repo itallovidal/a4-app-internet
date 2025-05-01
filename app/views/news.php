@@ -15,42 +15,37 @@
             <h1 class="heading">Ultimos Lançamentos</h1>
 
             <div class="card-list-preview">
-                <div class="card-preview">
-                    <picture>
-                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
-                    </picture>
-                    <div class="card-footer">
-                        <p class="text-regular">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae explicabo modi commodi sit quod laudantium mollitia blanditiis neque, minima quam quia dolor id architecto saepe perferendis placeat deserunt non sint.</p>
+                <?php foreach ($products as $product): ?>
+                    <div class="card-preview">
+                        <picture>
+                            <img src="<?= $product->imageSrc() ?>" alt="">
+                        </picture>
+                        <div class="card-content news-wrapper">
+                            <h1><?= $product->getName() ?></h1>
+                            <p class="text-regular content-wrapper-size"><?= $product->getDescription() ?></p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="card-preview">
-                    <picture>
-                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
-                    </picture>
-                    <div class="card-footer">
-                        <p class="text-regular">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae explicabo modi commodi sit quod laudantium mollitia blanditiis neque, minima quam quia dolor id architecto saepe perferendis placeat deserunt non sint.</p>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
-
         </article>
 
         <article class="news-wrapper content-wrapper-size">
             <h1 class="heading">Novidades</h1>
-            <div class="news-card">
-                <picture>
-                    <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
-                </picture>
-                <div class="card-content">
-                    <h1>Nome da noticia</h1>
-                    <p class="text-description text-regular">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatibus.</p>
+            <?php foreach ($news as $new): ?>
+                <div class="news-card">
+                    <picture>
+                        <img src="<?= $new->imageSrc() ?>" alt="">
+                    </picture>
+                    <div class="card-content">
+                        <h1><?= $new->getName() ?></h1>
+                        <p class="text-description text-regular"><?= $new->getDescription() ?></p>
 
-                    <a type="button" class="btn-primary"> Ver mais
-                        <i class="fas fa chevron-right"></i>
-                    </a>
+                        <a type="button" class="btn-primary"> Ver mais
+                            <i class="fas fa chevron-right"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
         </article>
 
     </main>
