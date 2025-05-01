@@ -24,14 +24,14 @@
 
             <div class="card-list">
 
-            <?php foreach ($products as $product): ?>
+            <?php foreach ($newerIcecreams as $icecream): ?>
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="<?= $product->imageSrc() ?>" alt="">
+                        <img src="<?= $icecream->imageSrc() ?>" alt="">
                     </picture>
                     <div class="card-footer">
-                        <p class="text-regular"><?= $product->getName() ?></p>
-                        <p class="text-regular"><?= $product->getPrice() ?></p>
+                        <p class="text-regular"><?= $icecream->getName() ?></p>
+                        <p class="text-regular"><?= $icecream->getPrice() ?></p>
                     </div>
                 </div>
             <?php endforeach; ?>
