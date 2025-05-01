@@ -253,9 +253,10 @@ footer>div nav {
 }
 
 .news-card .card-content {
+    padding: 1rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 1rem;
 }

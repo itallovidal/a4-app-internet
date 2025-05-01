@@ -31,6 +31,7 @@
 
         <article class="news-wrapper content-wrapper-size">
             <h1 class="heading">Novidades</h1>
+            <div class="news-list">
             <?php foreach ($news as $new): ?>
                 <div class="news-card">
                     <picture>
@@ -46,6 +47,7 @@
                     </div>
                 </div>
             <?php endforeach; ?>
+            </div>
         </article>
 
     </main>
