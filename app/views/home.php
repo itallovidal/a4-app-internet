@@ -23,35 +23,18 @@
             <h1 class="heading">Lançamentos Recentes</h1>
 
             <div class="card-list">
-                <div class="icecream-card-wrapper">
-                    <picture>
-                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
-                    </picture>
-                    <div class="card-footer">
-                        <p class="text-regular">Nome do produto</p>
-                        <p class="text-regular">Preco</p>
-                    </div>
-                </div>
 
+            <?php foreach ($products as $product): ?>
                 <div class="icecream-card-wrapper">
                     <picture>
-                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
+                        <img src="<?= $product->imageSrc() ?>" alt="">
                     </picture>
                     <div class="card-footer">
-                        <p class="text-regular">Nome do produto</p>
-                        <p class="text-regular">Preco</p>
+                        <p class="text-regular"><?= $product->getName() ?></p>
+                        <p class="text-regular"><?= $product->getPrice() ?></p>
                     </div>
                 </div>
-
-                <div class="icecream-card-wrapper">
-                    <picture>
-                        <img src="<?= base_url('assets/icecreams/ice_cream_01.jpg') ?>" alt="">
-                    </picture>
-                    <div class="card-footer">
-                        <p class="text-regular">Nome do produto</p>
-                        <p class="text-regular">Preco</p>
-                    </div>
-                </div>
+            <?php endforeach; ?>
             </div>
 
             <a href="<?= base_url('products'); ?>" class="btn-primary">ver mais sorvetes</a>
