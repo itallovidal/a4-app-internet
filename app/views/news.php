@@ -15,14 +15,14 @@
             <h1 class="heading">Ultimos Lançamentos</h1>
 
             <div class="card-list-preview">
-                <?php foreach ($products as $product): ?>
+                <?php foreach ($newerIcecreams as $icecream): ?>
                     <div class="card-preview">
                         <picture>
-                            <img src="<?= $product->imageSrc() ?>" alt="">
+                            <img src="<?= $icecream->imageSrc() ?>" alt="">
                         </picture>
                         <div class="card-content news-wrapper">
-                            <h1><?= $product->getName() ?></h1>
-                            <p class="text-regular content-wrapper-size"><?= $product->getDescription() ?></p>
+                            <h1><?= $icecream->getName() ?></h1>
+                            <p class="text-regular content-wrapper-size"><?= $icecream->getDescription() ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -32,7 +32,7 @@
         <article class="news-wrapper content-wrapper-size">
             <h1 class="heading">Novidades</h1>
             <div class="news-list">
-            <?php foreach ($news as $new): ?>
+            <?php foreach ($newerNews as $new): ?>
                 <div class="news-card">
                     <picture>
                         <img src="<?= $new->imageSrc() ?>" alt="">

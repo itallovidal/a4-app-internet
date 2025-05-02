@@ -2,7 +2,7 @@
 
 class MySQLDatabase {
     private $host = "localhost";
-    private $database = "icecream_shop_dp";
+    private $database = "icecream_shop_db";
     private $user = "root";
     private $password = "";
 
