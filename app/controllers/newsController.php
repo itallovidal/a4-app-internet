@@ -2,6 +2,12 @@
 
 class newsController
 {
+    private $db;
+
+    private $icecreamDAO;
+
+    private $newsDAO;
+
     public function index()
     {
         $this->news();
@@ -10,40 +16,23 @@ class newsController
     public function news()
     {
         require_once '../app/model/icecream.php';
+        require_once '../app/dao/icecreamDAO.php';
+        require_once '../app/model/database.php';
+        $database = new MySQLDatabase();
+        $this->db = $database->connect();
+        $this->icecreamDAO = new IcecreamDAO($this->db);
 
-        $products = [
-            new Icecream(
-                1,
-                "Sorvete de Chocolate",
-                "Delicioso sorvete de chocolate com pedaços de chocolate.",
-                19.99,
-                base_url('assets/icecreams/ice_cream_01.jpg')
-            ),
-            new Icecream(
-                2,
-                "Sorvete de Morango",
-                "Refrescante sorvete de morango com pedaços de morango.",
-                18.99,
-                base_url('assets/icecreams/ice_cream_01.jpg')
-            )
-        ];
+        $newerIcecreams = $this->icecreamDAO->getIcecreams(2);
+
 
         require_once '../app/model/news.php';
+        require_once '../app/dao/newsDAO.php';
+        require_once '../app/model/database.php';
+        $database = new MySQLDatabase();
+        $this->db = $database->connect();
+        $this->newsDAO = new NewsDAO($this->db);
 
-        $news = [
-            new News(
-                1,
-                "Sorvete de Chocolate",
-                "Delicioso sorvete de chocolate com pedaços de chocolate.",
-                base_url('assets/icecreams/ice_cream_01.jpg')
-            ),
-            new News(
-                2,
-                "Sorvete de Morango",
-                "Refrescante sorvete de morango com pedaços de morango.",
-                base_url('assets/icecreams/ice_cream_01.jpg')
-            )
-        ];
+        $newerNews = $this->newsDAO->getNews();
 
         require_once '../app/views/news.php';
     }
