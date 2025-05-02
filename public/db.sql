@@ -31,3 +31,15 @@ INSERT INTO news (name, description, imageSrc) VALUES
 ('Sabores da Temporada', 'Confira os novos sabores especiais lançados para esta estação, como Abacaxi com Hortelã e Brownie Caramelo.', 'assets/icecreams/ice_cream_01.jpg'),
 ('Festival do Sorvete', 'Participe do nosso Festival do Sorvete com promoções exclusivas e degustações gratuitas.', 'assets/icecreams/ice_cream_01.jpg'),
 ('Sorvete Vegano Chegou!', 'Pensando em todos os nossos clientes, agora temos opções 100% veganas no nosso cardápio.', 'assets/icecreams/ice_cream_01.jpg');
+
+CREATE TABLE users (
+    id int AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255)
+);
+
+INSERT INTO users (name, email, password) VALUES
+("Gabriel", "gabrielnathan929@gmail.com", "yrftead123sdfj"),
+("Leonardo", "leonardo@gmail.com", "jdsfgastyfsf23"),
+("Itallo", "itallo@gmail.com", "dsfcasd1231h1get");
