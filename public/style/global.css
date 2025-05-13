@@ -4,6 +4,7 @@
     --background-color: #FDFAF6;
     --border: #f7e3ca;
     --background-dark-color: #3D3D3D;
+    --danger-color: #FF4D4D;
 }
 
 @media(max-width: 500px) {
@@ -42,6 +43,45 @@ button.btn-primary {
     cursor: pointer;
 }
 
+button.icon-button,
+a.icon-button {
+    padding: .5rem;
+    border: none;
+    outline: none;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+button.btn-danger,
+a.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+    cursor: pointer;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
 
 a.btn-secondary,
 button.btn-secondary {
@@ -259,4 +299,49 @@ footer>div nav {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+}
+
+.table-wrapper {
+    overflow-y: scroll;
+    max-height: 300px;
+    height: 100%;
+    margin-block: 2rem
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* table thead  {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+} */
+
+table thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+table thead th {
+    padding: 1rem;
+}
+
+table tbody tr {
+    background-color: var(--secondary-color);
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+table tbody tr td {
+    padding: 1rem;
+    text-align: center;
 }
