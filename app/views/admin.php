@@ -23,7 +23,7 @@
             <p>Adicione, edite ou remova produtos do site.</p>
             <div class="table-wrapper">
                 <table>
-                    <thead>
+                    <thead class="">
                         <tr>
                             <th>Nome</th>
                             <th>Descrição</th>
@@ -59,8 +59,39 @@
         </article>
 
         <article class="content-wrapper-size admin">
-            <h2>Gerenciar Admins</h2>
+            <div class="flex-row flex-between">
+                <h2>Gerenciar Admins</h2>
+                <a class="btn-primary" href="<?php echo base_url('home'); ?>">Adicionar Produto</a>
+            </div>
             <p>Adicione, edite ou remova admins do sistema.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Senha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($userList as $user): ?>
+                            <tr>
+                                <td><?= $user->getName() ?></td>
+                                <td><?= $user->getEmail() ?></td>
+                                <td><?= $user->getPasswordHash() ?></td>
+                                <td class="flex-row flex-center">
+                                    <a href="<?php echo base_url('home'); ?>" class="btn-danger icon-button">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                    <a href="<?php echo base_url('home'); ?>" class="icon-button">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </article>
     </main>
 </body>
