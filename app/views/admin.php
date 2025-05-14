@@ -54,8 +54,38 @@
         </article>
 
         <article class="content-wrapper-size admin">
-            <h2>Gerenciar Novidades</h2>
+            <div class="flex-row flex-between">
+                <h2>Gerenciar Novidades</h2>
+                <a class="btn-primary" href="<?php echo base_url('home'); ?>">Adicionar Produto</a>
+            </div>
             <p>Adicione, edite ou remova novidades do site.</p>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($NewsList as $news): ?>
+                            <tr>
+                                <td><?= $news->getName() ?></td>
+                                <td><?= $news->getDescription() ?></td>
+                                <td class="flex-row flex-center">
+                                    <a href="<?php echo base_url('home'); ?>" class="btn-danger icon-button">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                    <a href="<?php echo base_url('home'); ?>" class="icon-button">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </article>
 
         <article class="content-wrapper-size admin">
@@ -71,6 +101,7 @@
                             <th>Nome</th>
                             <th>E-mail</th>
                             <th>Senha</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
