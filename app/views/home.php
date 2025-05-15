@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <?php include 'partials/head.php'; ?>
     <link rel="stylesheet" href="<?= base_url('style/index.css') ?>">
@@ -8,8 +8,8 @@
 <body>
     <?php include 'partials/navbar.php'; ?>
 
-
-    <div class="page-header">
+    <main>
+        <div class="page-header">
             <div class="page-header-text-wrapper">
                 <h1 class="hero">Fábrica de Delícias</h1>
                 <h2 class="heading">Sonhos gelados feitos com amor</h2>
@@ -18,23 +18,22 @@
                 <img src="<?= base_url('assets/index_banner.jpg') ?>" alt="foto de sorvete">
             </picture>
         </div>
-    <main>
         <article class="icecream-list-wrapper content-wrapper-size">
             <h1 class="heading">Lançamentos Recentes</h1>
 
             <div class="card-list">
 
-            <?php foreach ($newerIcecreams as $icecream): ?>
-                <div class="icecream-card-wrapper">
-                    <picture>
-                        <img src="<?= $icecream->imageSrc() ?>" alt="">
-                    </picture>
-                    <div class="card-footer">
-                        <p class="text-regular"><?= $icecream->getName() ?></p>
-                        <p class="text-regular"><?= $icecream->getPrice() ?></p>
+                <?php foreach ($newerIcecreams as $icecream): ?>
+                    <div class="icecream-card-wrapper">
+                        <picture>
+                            <img src="<?= $icecream->imageSrc() ?>" alt="">
+                        </picture>
+                        <div class="card-footer">
+                            <p class="text-regular"><?= $icecream->getName() ?></p>
+                            <p class="text-regular"><?= $icecream->getPrice() ?></p>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
             </div>
 
             <a href="<?= base_url('products'); ?>" class="btn-primary">ver mais sorvetes</a>
