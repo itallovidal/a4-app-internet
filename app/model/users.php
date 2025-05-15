@@ -20,7 +20,7 @@ class Users {
     public function getEmail() {
         return $this->email;
     }
-    public function getPasswordHash() {
-        return substr(password_hash($this->password, PASSWORD_DEFAULT), 0, 10) . '...';
+    public function getPassword() {
+        return $this->password;
     }
 }

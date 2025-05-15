@@ -3,7 +3,7 @@
 <head>
     <?php include 'partials/head.php'; ?>
     <link rel="stylesheet" href="<?= base_url('style/index.css') ?>">
-    <title>Página Home</title>
+    <title>Página Inicial</title>
 </head>
 <body>
     <?php include 'partials/navbar.php'; ?>
