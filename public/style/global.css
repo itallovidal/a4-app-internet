@@ -182,6 +182,7 @@ p.text-small {
 }
 
 main {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 4rem;
@@ -198,9 +199,12 @@ main {
 /* topnavar */
 
 #navbar-wrapper {
+    position: fixed;
+    top: 0;
     width: 100%;
     padding-block: 1rem;
     background-color: var(--primary-color);
+    z-index: 1;
 }
 
 #navbar-wrapper #top-navbar {
@@ -208,6 +212,11 @@ main {
     justify-content: flex-end;
     align-items: center;
     gap: 1rem;
+}
+
+#login {
+    position: absolute;
+    right: 15px;
 }
 
 @media(max-width: 500px) {

@@ -1,1 +1,10 @@
 @import url('./global.css');
+
+.nav-admin {
+    position: fixed;
+    top: 0px;
+    height: 100%;
+    gap: 3rem;
+    padding: 1rem;
+    background-color: var(--primary-color);
+}
