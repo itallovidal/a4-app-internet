@@ -6,6 +6,24 @@ class UsersDAO {
     public function __construct($db) {
         $this->db = $db;
     }
+
+    public function getUser($email, $password) {
+        try {
+            $sql = "SELECT * FROM users WHERE email = :email";
+            $statment = $this->db->prepare($sql);
+            $statment->bindValue(':email', $email);
+            $statment->execute();
+            $userFetched = $statment->fetch(PDO::FETCH_ASSOC);
+
+            if ($userFetched && $password == $userFetched['password']) {
+                return new Users($userFetched['id'], $userFetched['name'], $userFetched['email'], $userFetched['password']);
+            } else {
+                throw new Exception("Email ou senha inválidos");
+            }
+        } catch (Exception $e) {
+            throw new Exception("Erro ao buscar o usuário: " . $e->getMessage());
+        }
+    }
     
     public function getUserByid($id) {
         try {
@@ -47,7 +65,7 @@ class UsersDAO {
                 $statment = $this->db->prepare($sql);
                 $statment->bindValue(':name', $name);
                 $statment->bindValue(':email', $email);
-                $statment->bindValue(':password', password_hash($password, PASSWORD_DEFAULT));
+                $statment->bindValue(':password', $password);
                 $statment->execute();
             }
         }
@@ -72,7 +90,7 @@ class UsersDAO {
                 $statment = $this->db->prepare($sql);
                 $statment->bindValue(':name', $user->name);
                 $statment->bindValue(':email', $user->email);
-                $statment->bindValue(':password', password_hash($user->password, PASSWORD_DEFAULT));
+                $statment->bindValue(':password', $user->password);
                 $statment->bindValue(':id', $id, PDO::PARAM_INT);
                 $statment->execute();
             }

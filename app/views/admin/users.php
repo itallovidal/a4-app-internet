@@ -38,7 +38,7 @@
                             <tr>
                                 <td><?= $user->getName() ?></td>
                                 <td><?= $user->getEmail() ?></td>
-                                <td><?= $user->getPasswordHash() ?></td>
+                                <td><?= $user->getPassword() ?></td>
                                 <td class="flex-row flex-center">
                                     <a href="<?php echo base_url('home'); ?>" class="btn-danger icon-button">
                                         <i class="fas fa-trash-alt"></i>
