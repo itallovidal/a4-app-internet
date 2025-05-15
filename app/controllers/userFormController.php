@@ -19,17 +19,19 @@ class UserFormController{
 
         $this->usersDAO = new UsersDAO($this->db);
 
-        // Verifica se o formulário foi enviado
-        if (!isset($_POST)) {
+        // Corrigido: processa apenas se for POST
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $_POST['name'] ?? '';
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
 
-            // Valide os dados conforme necessário
-
-            // Cria o usuário usando o DAO
-            $userCreate = $this->usersDAO->createUser($name, $email, $password);
-            echo $userCreate;
+            try {
+                $this->usersDAO->createUser($name, $email, $password);
+                echo "<script>alert('Usuário criado com sucesso!'); window.location.href='/'</script>";
+                exit();
+            } catch (Exception $e) {
+                echo "<script>alert('Erro: {$e->getMessage()}');</script>";
+            }
         }
         
         require_once '../app/views/users/form/userForm.php';

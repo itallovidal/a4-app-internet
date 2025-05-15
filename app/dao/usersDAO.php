@@ -27,17 +27,21 @@ class UsersDAO {
     
     public function getUserByid($id) {
         try {
-            foreach ($this->getUsers() as $user){
-                $sql = "SELECT * FROM users WHERE id = :id";
-                $statment = $this->db->prepare($sql);
-                $statment->bindValue(':id', $id, PDO::PARAM_INT);
-                $statment->execute();
+            $sql = "SELECT * FROM users WHERE id = :id";
+            $statment = $this->db->prepare($sql);
+            $statment->bindValue(':id', $id, PDO::PARAM_INT);
+            $statment->execute();
+            $user = $statment->fetch(PDO::FETCH_ASSOC);
+            if ($user) {
+                return new Users($user['id'], $user['name'], $user['email'], $user['password']);
             }
+            return null;
         }
         catch (Exception $e) {
             throw new Exception("Erro ao buscar o usuário: " . $e->getMessage());
         }
     }
+
     public function getUsers() {
         try {
             $sql = "SELECT * FROM users";
@@ -56,47 +60,49 @@ class UsersDAO {
     }
 
     public function createUser($name, $email, $password) {
-        foreach ($this->getUsers() as $user) {
-            if ($email == $user->email) {
-                throw new Exception("Email já cadastrado");
-            }
-            else {
-                $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
-                $statment = $this->db->prepare($sql);
-                $statment->bindValue(':name', $name);
-                $statment->bindValue(':email', $email);
-                $statment->bindValue(':password', $password);
-                $statment->execute();
-            }
+        $sql = "SELECT COUNT(*) FROM users WHERE email = :email";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':email', $email);
+        $stmt->execute();
+        if ($stmt->fetchColumn() > 0) {
+            throw new Exception("Email já cadastrado");
+        }
+        // Insere o novo usuário
+        $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
+        $statment = $this->db->prepare($sql);
+        $statment->bindValue(':name', $name);
+        $statment->bindValue(':email', $email);
+        $statment->bindValue(':password', $password);
+        if (!$statment->execute()) {
+            $errorInfo = $statment->errorInfo();
+            throw new Exception("Erro ao inserir usuário: " . $errorInfo[2]);
         }
     }
+
     public function deleteUser($id) {
         try {
-            foreach ($this->getUsers() as $user){
-                $sql = "DELETE FROM users WHERE id = :id";
-                $statment = $this->db->prepare($sql);
-                $statment->bindValue(':id', $id, PDO::PARAM_INT);
-                $statment->execute();
-            }
+            $sql = "DELETE FROM users WHERE id = :id";
+            $statment = $this->db->prepare($sql);
+            $statment->bindValue(':id', $id, PDO::PARAM_INT);
+            $statment->execute();
         }
         catch (Exception $e) {
-            throw new Exception("Erro ao buscar o usuário: " . $e->getMessage());
+            throw new Exception("Erro ao deletar o usuário: " . $e->getMessage());
         }
     }
-    public function updateUser($id) {
+
+    public function updateUser($id, $name, $email, $password) {
         try {
-            foreach ($this->getUsers() as $user){
-                $sql = "UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id";
-                $statment = $this->db->prepare($sql);
-                $statment->bindValue(':name', $user->name);
-                $statment->bindValue(':email', $user->email);
-                $statment->bindValue(':password', $user->password);
-                $statment->bindValue(':id', $id, PDO::PARAM_INT);
-                $statment->execute();
-            }
+            $sql = "UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id";
+            $statment = $this->db->prepare($sql);
+            $statment->bindValue(':name', $name);
+            $statment->bindValue(':email', $email);
+            $statment->bindValue(':password', password_hash($password, PASSWORD_DEFAULT));
+            $statment->bindValue(':id', $id, PDO::PARAM_INT);
+            $statment->execute();
         }
         catch (Exception $e) {
-            throw new Exception("Erro ao buscar o usuário: " . $e->getMessage());
+            throw new Exception("Erro ao atualizar o usuário: " . $e->getMessage());
         }
     }
 
