@@ -2,13 +2,13 @@
 <html lang="pt-BR">
 
 <head>
-    <?php include 'partials/head.php'; ?>
+    <?php include dirname(__DIR__, 2) . '/partials/head.php'; ?>
     <link rel="stylesheet" href="<?= base_url('style/admin.css') ?>">
     <title>Página administração de Usuários</title>
 </head>
 
 <body>
-    <?php include 'partials/navbar.php'; ?>
+    <?php include dirname(__DIR__, 2) . '/partials/navbar.php'; ?>
     <main>
         <form class="content-wrapper-size" action="" method="POST">
             <div class="form-group">
@@ -17,7 +17,7 @@
             </div>
 
             <div class="form-group">
-                <label for="email">E-mail</label>
+                <label for="email">E-mail</label>   
                 <input type="text" name="email" id="email" placeholder="Insira o seu e-mail" required>
             </div>
 
