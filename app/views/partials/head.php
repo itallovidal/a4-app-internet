@@ -15,4 +15,4 @@
 <link href="https://fonts.googleapis.com/css2?family=Yrsa:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 
 <!-- Font Awesome -->
-<link rel="stylesheet" href="public/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="<?= base_url('public/fontawesome/css/all.min.css') ?>">
