@@ -27,6 +27,7 @@ button {
     transition: 500ms;
     width: fit-content;
     font-size: 1.5rem;
+    border: none;
 }
 
 a:hover,
