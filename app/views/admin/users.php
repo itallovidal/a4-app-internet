@@ -20,7 +20,7 @@
         <article class="content-wrapper-size admin">
             <div class="flex-row flex-between">
                 <h2 class="heading">Gerenciar Admins</h2>
-                <a class="btn-primary" href="<?php echo base_url('home'); ?>">Adicionar Admin</a>
+                <a class="btn-primary" href="<?php echo base_url('userForm'); ?>">Adicionar Admin</a>
             </div>
             <p class="text-small">Adicione, edite ou remova admins do sistema.</p>
             <div class="table-wrapper">
