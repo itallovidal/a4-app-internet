@@ -39,7 +39,11 @@ class LoginController
 
             // Inicie a sessão e armazene os dados do usuário
             session_start();
-            $_SESSION['user'] = $user;
+            $_SESSION['user'] = [
+                'name' => $user->getName(),
+                'email' => $user->getEmail()
+            ];
+            $_SESSION['last_time'] = time();
             header('Location: ' . base_url('admin'));
             exit();
         }

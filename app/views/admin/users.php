@@ -12,9 +12,9 @@
         <?php include dirname(__DIR__, 1) . '/partials/navbarAdmin.php'; ?>
         
         <header class="content-wrapper-size admin">
-            <h1 class="hero">Admin</h1>
+            <h1 class="heading">Bem vindo, <?php echo $_SESSION['user']['name']?>!</h1>
             <p class="text-small">Esta é a página de administração do site.</p>
-            <p class="text-small">Você pode gerenciar o conteúdo do site aqui.</p>
+            <p class="text-small">Você pode gerenciar os admins na tabela abaixo.</p>
         </header>
 
         <article class="content-wrapper-size admin">

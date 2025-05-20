@@ -7,6 +7,13 @@ class AdminController
     private $usersDAO;
     private $newsDAO;
 
+    public function __construct()
+    {
+        $this->inSession();
+        $this->connectDatabase();
+        $this->logout();
+    }
+
     public function index()
     {
         header('Location: ' . base_url('admin/products'));
@@ -14,8 +21,6 @@ class AdminController
 
     public function products()
     {
-        $this->connectDatabase();
-
         require_once '../app/model/icecream.php';
         require_once '../app/dao/icecreamDAO.php';
 
@@ -27,8 +32,6 @@ class AdminController
 
     public function news()
     {
-        $this->connectDatabase();
-
         require_once '../app/model/news.php';
         require_once '../app/dao/newsDAO.php';
 
@@ -40,8 +43,6 @@ class AdminController
 
     public function users()
     {
-        $this->connectDatabase();
-
         require_once '../app/model/users.php';
         require_once '../app/dao/usersDAO.php';
 
@@ -51,11 +52,42 @@ class AdminController
         require_once '../app/views/admin/users.php';
     }
 
-    public function connectDatabase()
+    private function connectDatabase()
     {
         require_once '../app/model/database.php';
-        
+
         $database = new MySQLDatabase();
         $this->db = $database->connect();
+    }
+
+    private function inSession()
+    {
+        session_start();
+
+        if (!isset($_SESSION['user'])) {
+            header('Location: ' . base_url('login?expired'));
+            exit();
+        }
+
+        $maxTime = 120;
+        if (isset($_SESSION['last_time']) && (time() - $_SESSION['last_time']) > $maxTime) {
+            session_unset();
+            session_destroy();
+            header('Location: ' . base_url('login?expired'));
+            exit();
+        }
+
+        $_SESSION['last_time'] = time();
+    }
+
+    private function logout() {
+
+        if (isset($_GET['logout'])) {
+            session_unset();
+            session_destroy();
+            header('Location: ' . base_url('login'));
+            exit();
+        }
+        
     }
 }

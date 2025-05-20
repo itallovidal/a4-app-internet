@@ -12,7 +12,9 @@
     <main>
         <div class="form-container">
             <header class="flex-row flex-center">
-                <i class="fa-solid fa-arrow-left"></i>
+                <a href="<?php echo base_url('admin/users') ?>">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
                 <h1 class="heading">Gerenciar Admin</h1>
             </header>
             <form class="content-wrapper-size flex-column flex-center" action="" method="POST">
