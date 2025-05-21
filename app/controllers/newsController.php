@@ -1,6 +1,6 @@
 <?php
 
-class newsController
+class NewsController
 {
     private $db;
 

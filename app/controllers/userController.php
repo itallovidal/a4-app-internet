@@ -63,31 +63,4 @@ class UserController
         header('Location: ' . base_url('admin/users'));
     }
 
-    public function login()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-
-            $loginResult = $this->usersDAO->login($email, $password);
-
-            if ($loginResult['status'] == 200) {
-                session_start();
-                $_SESSION['user'] = [
-                    'id' => $loginResult['user']->getId(),
-                    'name' => $loginResult['user']->getName(), 
-                    'email' => $loginResult['user']->getEmail()
-                ];
-                $_SESSION['last_time'] = time();
-                
-                header('Location: ' . base_url('admin'));
-                exit();
-            } else {
-                $error = $loginResult['error'];
-                require_once '../app/views/login.php';
-            }
-        } else {
-            require_once '../app/views/login.php';
-        }
-    }
 }

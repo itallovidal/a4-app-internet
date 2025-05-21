@@ -6,14 +6,18 @@ class AdminController
     private $db;
     private $icecreamDAO;
     private $newsDAO;
+    private $usersDAO;
     private $userController;
 
     public function __construct()
     {
         $this->connectDatabase();
-        $this->inSession();
         $this->userController = new UserController($this->db);
         $this->logout();
+
+        if ($_GET['url'] != 'admin/login') {
+            $this->inSession();
+        }
     }
 
     public function index()
@@ -75,16 +79,11 @@ class AdminController
     {
         session_start();
 
-        if (!isset($_SESSION['user'])) {
-            header('Location: ' . base_url('login?expired'));
-            exit();
-        }
-
         $maxTime = 120;
         if (isset($_SESSION['last_time']) && (time() - $_SESSION['last_time']) > $maxTime) {
             session_unset();
             session_destroy();
-            header('Location: ' . base_url('login?expired'));
+            header('Location: ' . base_url('admin/login?expired'));
             exit();
         }
 
@@ -93,7 +92,36 @@ class AdminController
 
     public function login()
     {
-        $this->userController->login();
+
+        require_once '../app/dao/usersDAO.php';
+        require_once '../app/model/users.php';
+
+        $this->usersDAO = new UsersDAO($this->db);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            $loginResult = $this->usersDAO->login($email, $password);
+
+            if ($loginResult['status'] == 200) {
+                session_start();
+                $_SESSION['user'] = [
+                    'id' => $loginResult['user']->getId(),
+                    'name' => $loginResult['user']->getName(), 
+                    'email' => $loginResult['user']->getEmail()
+                ];
+                $_SESSION['last_time'] = time();
+                
+                header('Location: ' . base_url('admin'));
+                exit();
+            } else {
+                $error = $loginResult['error'];
+                require_once '../app/views/login.php';
+            }
+        } else {
+            require_once '../app/views/login.php';
+        }
     }
 
     public function logout()
@@ -101,7 +129,7 @@ class AdminController
         if (isset($_GET['logout'])) {
             session_unset();
             session_destroy();
-            header('Location: ' . base_url('login'));
+            header('Location: ' . base_url('admin/login'));
             exit();
         }
     }

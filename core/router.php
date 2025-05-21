@@ -8,11 +8,6 @@ class Router {
         require_once __DIR__ . '/helper.php';
         $url = isset($_GET['url']) ? $_GET['url'] : 'home/index';
         
-        // Trata login como caso especial (redireciona para user/login)
-        if ($url === 'login') {
-            $url = 'user/login';
-        }
-        
         // Divide a URL: [entidade, ação, parâmetro]
         $urlParts = explode('/', $url);
         $entity = $urlParts[0];
