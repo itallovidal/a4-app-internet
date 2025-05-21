@@ -27,8 +27,8 @@ class UserController
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            $user = new User($name, $email, $password);
-            $this->usersDAO->createUser($user);
+            // TODO: Modificar para criar um objeto User e passar para o DAO
+            $this->usersDAO->createUser($name, $email, $password);
             header('Location: ' . base_url('admin/users'));
         }
         require_once '../app/views/users/form/createForm.php';

@@ -41,17 +41,24 @@ class UsersDAO
         }
     }
 
-    public function createUser(User $user): bool
-    {
-        try {
-            $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
-            $stmt = $this->db->prepare($sql);
-            $stmt->bindValue(':name', $user->getName());
-            $stmt->bindValue(':email', $user->getEmail());
-            $stmt->bindValue(':password', $user->getPassword());
-            return $stmt->execute();
-        } catch (Exception $e) {
-            throw new Exception("Erro ao inserir usuário: " . $e->getMessage());
+    // TODO: Modificar para receber um objeto do tipo User
+    public function createUser($name, $email, $password) {
+        $sql = "SELECT COUNT(*) FROM users WHERE email = :email";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':email', $email);
+        $stmt->execute();
+
+        if ($stmt->fetchColumn() > 0) {
+            throw new Exception("Email já cadastrado");
+        }
+        $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
+        $statment = $this->db->prepare($sql);
+        $statment->bindValue(':name', $name);
+        $statment->bindValue(':email', $email);
+        $statment->bindValue(':password', $password);
+        if (!$statment->execute()) {
+            $errorInfo = $statment->errorInfo();
+            throw new Exception("Erro ao inserir usuário: " . $errorInfo[2]);
         }
     }
 
