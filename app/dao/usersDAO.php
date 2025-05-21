@@ -8,7 +8,7 @@ class UsersDAO
         $this->db = $db;
     }
 
-    public function getUserById(int $id): array
+    public function getUserById(int $id)
     {
         try {
             $sql = "SELECT * FROM users WHERE id = :id";
@@ -17,24 +17,15 @@ class UsersDAO
             $statment->execute();
             $user = $statment->fetch(PDO::FETCH_ASSOC);
             if ($user) {
-                return [
-                    'status' => 200,
-                    'user' => new User($user['id'], $user['name'], $user['email'], $user['password'])
-                ];
+                return new User($user['name'], $user['email'], $user['password'], $user['id']);
             }
-            return [
-                'status' => 404,
-                'user' => null
-            ];
+            return null;
         } catch (Exception $e) {
-            return [
-                'status' => 500,
-                'error' => "Erro ao buscar o usuário: " . $e->getMessage()
-            ];
+            return "Erro ao buscar o usuário: " . $e->getMessage();
         }
     }
 
-    public function getUsers(): array
+    public function getUsers()
     {
         try {
             $sql = "SELECT * FROM users";
@@ -42,17 +33,11 @@ class UsersDAO
             $usersFetched = $statment->fetchAll(PDO::FETCH_ASSOC);
             $users = [];
             foreach ($usersFetched as $user) {
-                $users[] = new User($user['id'], $user['name'], $user['email'], $user['password']);
+                $users[] = new User($user['name'], $user['email'], $user['password'], $user['id']);
             }
-            return [
-                'status' => 200,
-                'users' => $users
-            ];
+            return $users;
         } catch (Exception $e) {
-            return [
-                'status' => 500,
-                'error' => "Erro ao buscar os usuários: " . $e->getMessage()
-            ];
+            return "Erro ao buscar os usuários: " . $e->getMessage();
         }
     }
 
@@ -70,7 +55,7 @@ class UsersDAO
         }
     }
 
-    public function deleteUser(int $id): array
+    public function deleteUser(int $id)
     {
         try {
             $sql = "DELETE FROM users WHERE id = :id";
@@ -78,25 +63,16 @@ class UsersDAO
             $statment->bindValue(':id', $id, PDO::PARAM_INT);
             $statment->execute();
             if ($statment->rowCount() > 0) {
-                return [
-                    'status' => 200,
-                    'message' => 'Usuário deletado com sucesso.'
-                ];
+                return 'Usuário deletado com sucesso.';
             } else {
-                return [
-                    'status' => 404,
-                    'message' => 'Usuário não encontrado.'
-                ];
+                return 'Usuário não encontrado.';
             }
         } catch (Exception $e) {
-            return [
-                'status' => 500,
-                'error' => "Erro ao deletar o usuário: " . $e->getMessage()
-            ];
+            return "Erro ao deletar o usuário: " . $e->getMessage();
         }
     }
 
-    public function updateUser(int $id, User $user): array
+    public function updateUser(int $id, User $user)
     {
         try {
             $sql = "UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id";
@@ -108,24 +84,15 @@ class UsersDAO
             $statment->execute();
 
             if ($statment->rowCount() > 0) {
-                return [
-                    'status' => 200,
-                    'message' => 'Usuário atualizado com sucesso.'
-                ];
+                return 'Usuário atualizado com sucesso.';
             } else {
-                return [
-                    'status' => 404,
-                    'message' => 'Usuário não encontrado.'
-                ];
+                return 'Usuário não encontrado.';
             }
         } catch (Exception $e) {
-            return [
-                'status' => 500,
-                'error' => "Erro ao atualizar o usuário: " . $e->getMessage()
-            ];
+            return "Erro ao atualizar o usuário: " . $e->getMessage();
         }
     }
-    public function login(string $email, string $password): array
+    public function login(string $email, string $password)
     {
         try {
             $sql = "SELECT * FROM users WHERE email = :email";
@@ -134,21 +101,12 @@ class UsersDAO
             $statment->execute();
             $userFetched = $statment->fetch(PDO::FETCH_ASSOC);
             if ($userFetched && $password == $userFetched['password']) {
-                return [
-                    'status' => 200,
-                    'user' => new User($userFetched['id'], $userFetched['name'], $userFetched['email'], $userFetched['password'])
-                ];
+                return new User($userFetched['name'], $userFetched['email'], $userFetched['password'], $userFetched['id']);
             } else {
-                return [
-                    'status' => 401,
-                    'error' => 'Email ou senha inválidos'
-                ];
+                return 'Email ou senha inválidos';
             }
         } catch (Exception $e) {
-            return [
-                'status' => 500,
-                'error' => "Erro ao buscar o usuário: " . $e->getMessage()
-            ];
+            return "Erro ao buscar o usuário: " . $e->getMessage();
         }
     }
 }

@@ -1,14 +1,13 @@
 <?php 
 
 class User {
-    private static int $nextId = 1;
     private int $id;
     private string $name;
     private string $email;
     private string $password;
 
-    public function __construct(string $name, string $email, string $password) {
-        $this->id = self::$nextId++;
+    public function __construct(string $name, string $email, string $password, ?int $id = null) {
+        $this->id = $id;
         $this->name = $name;
         $this->email = $email;
         $this->password = $password;

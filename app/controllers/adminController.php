@@ -92,38 +92,37 @@ class AdminController
 
     public function login()
     {
-
-        require_once '../app/dao/usersDAO.php';
         require_once '../app/model/users.php';
+        require_once '../app/dao/usersDAO.php';
 
         $this->usersDAO = new UsersDAO($this->db);
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['email']) && isset($_POST['password'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            $loginResult = $this->usersDAO->login($email, $password);
+            // Procura o usuário usando o DAO
+            $user = $this->usersDAO->login($email, $password);
 
-            if ($loginResult['status'] == 200) {
-                session_start();
-                $_SESSION['user'] = [
-                    'id' => $loginResult['user']->getId(),
-                    'name' => $loginResult['user']->getName(), 
-                    'email' => $loginResult['user']->getEmail()
-                ];
-                $_SESSION['last_time'] = time();
-                
-                header('Location: ' . base_url('admin'));
-                exit();
-            } else {
-                $error = $loginResult['error'];
-                require_once '../app/views/login.php';
+            if (!$user) {
+                echo "Email ou senha inválidos";
+                return;
             }
-        } else {
-            require_once '../app/views/login.php';
-        }
-    }
 
+            // Inicie a sessão e armazene os dados do usuário
+            session_start();
+            $_SESSION['user'] = [
+
+                'name' => $user->getName(),
+                'email' => $user->getEmail()
+            ];
+            $_SESSION['last_time'] = time();
+            header('Location: ' . base_url('admin'));
+            exit();
+        }
+        require_once '../app/views/login.php';
+    }
+    
     public function logout()
     {
         if (isset($_GET['logout'])) {

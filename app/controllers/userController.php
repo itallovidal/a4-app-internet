@@ -30,9 +30,8 @@ class UserController
             $user = new User($name, $email, $password);
             $this->usersDAO->createUser($user);
             header('Location: ' . base_url('admin/users'));
-        } else {
-            require_once '../app/views/admin/createForm.php';
         }
+        require_once '../app/views/users/form/createForm.php';
     }
 
     public function editUser($id)
