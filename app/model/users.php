@@ -1,26 +1,32 @@
 <?php 
-class Users {
-    private $id;
-    private $name;
-    private $email;
-    private $password;
-    
-    public function __construct($id, $nome, $email, $password) {
-        $this->id = $id;
-        $this->name = $nome;
+
+class User {
+    private static int $nextId = 1;
+    private int $id;
+    private string $name;
+    private string $email;
+    private string $password;
+
+    public function __construct(string $name, string $email, string $password) {
+        $this->id = self::$nextId++;
+        $this->name = $name;
         $this->email = $email;
         $this->password = $password;
     }
-    public function getId() {
+
+    public function getId(): int {
         return $this->id;
     }
-    public function getName() {
+
+    public function getName(): string {
         return $this->name;
     }
-    public function getEmail() {
+
+    public function getEmail(): string {
         return $this->email;
     }
-    public function getPassword() {
+
+    public function getPassword(): string {
         return $this->password;
     }
 }

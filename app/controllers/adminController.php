@@ -1,16 +1,18 @@
 <?php
+require_once '../app/controllers/userController.php';
 
 class AdminController
 {
     private $db;
     private $icecreamDAO;
-    private $usersDAO;
     private $newsDAO;
+    private $userController;
 
     public function __construct()
     {
-        $this->inSession();
         $this->connectDatabase();
+        $this->inSession();
+        $this->userController = new UserController($this->db);
         $this->logout();
     }
 
@@ -43,13 +45,22 @@ class AdminController
 
     public function users()
     {
-        require_once '../app/model/users.php';
-        require_once '../app/dao/usersDAO.php';
+        $this->userController->listUsers();
+    }
 
-        $this->usersDAO = new UsersDAO($this->db);
-        $usersList = $this->usersDAO->getUsers();
+    public function createUser()
+    {
+        $this->userController->createUser();
+    }
 
-        require_once '../app/views/admin/users.php';
+    public function editUser($id)
+    {
+        $this->userController->editUser($id);
+    }
+
+    public function deleteUser($id)
+    {
+        $this->userController->deleteUser($id);
     }
 
     private function connectDatabase()
@@ -80,14 +91,18 @@ class AdminController
         $_SESSION['last_time'] = time();
     }
 
-    private function logout() {
+    public function login()
+    {
+        $this->userController->login();
+    }
 
+    public function logout()
+    {
         if (isset($_GET['logout'])) {
             session_unset();
             session_destroy();
             header('Location: ' . base_url('login'));
             exit();
         }
-        
     }
 }
