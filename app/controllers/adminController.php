@@ -19,7 +19,7 @@ class AdminController
 
     public function index()
     {
-        header('Location: ' . base_url('admin/login'));
+        header('Location: ' . base_url('admin/products'));
     }
 
     public function products()

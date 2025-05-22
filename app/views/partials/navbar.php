@@ -4,6 +4,6 @@
         <a class="text-regular btn-primary" href="<?php echo base_url('about'); ?>">Sobre</a>
         <a class="text-regular btn-primary" href="<?php echo base_url('products'); ?>">Sorvetes</a>
         <a class="text-regular btn-primary" href="<?php echo base_url('news'); ?>">Novidades</a>
-        <a class="text-regular btn-primary" id="login" href="<?php echo base_url('admin/login'); ?>">Entrar</a>
+        <a class="text-regular btn-primary" id="login" href="<?php echo base_url('admin'); ?>">Entrar</a>
     </nav>
 </div>
