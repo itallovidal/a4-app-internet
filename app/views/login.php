@@ -16,6 +16,7 @@
                 <h1 class="heading">Entrar</h1>
                 <p class="text-small">Entre com seu e-mail e senha para acessar sua conta.</p>
                 <p class="text-small" style="color: red;"><?php echo isset($_GET['expired']) ? 'Sessão expirada' : '';?></p>
+                <p class="text-small" style="color: red;"><?php echo isset($_GET['incorrect']) ? 'Email ou senha inválidos' : '';?></p>
             </div>
             <div class="flex-column flex-center">
                 <input type="email" name="email" id="email" placeholder="Email" required>

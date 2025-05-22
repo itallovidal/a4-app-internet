@@ -103,8 +103,8 @@ class AdminController
             $user = $this->usersDAO->login($email, $password);
 
             if (!$user) {
-                echo "Email ou senha inválidos";
-                return;
+                header('Location: ' . base_url('admin/login?incorrect'));
+                exit();
             }
 
             // Inicie a sessão e armazene os dados do usuário

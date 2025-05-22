@@ -110,7 +110,7 @@ class UsersDAO
             if ($userFetched && $password == $userFetched['password']) {
                 return new User($userFetched['name'], $userFetched['email'], $userFetched['password'], $userFetched['id']);
             } else {
-                return 'Email ou senha inválidos';
+                return false;
             }
         } catch (Exception $e) {
             return "Erro ao buscar o usuário: " . $e->getMessage();
