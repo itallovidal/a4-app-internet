@@ -49,6 +49,10 @@
 
 /* about */
 
+.about-wrapper {
+    padding-block: 1rem;
+}
+
 .about-wrapper,
 .shop-wrapper {
     background-color: var(--background-color);
@@ -66,7 +70,6 @@
 
 .about-wrapper .text-wrapper,
 .shop-wrapper .text-wrapper {
-
     justify-content: center;
     width: 50%;
     display: flex;
