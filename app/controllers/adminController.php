@@ -9,9 +9,9 @@ class AdminController
     private $usersDAO;
     private $userController;
 
-    public function __construct()
+    public function __construct(PDO $db)
     {
-        $this->connectDatabase();
+        $this->db = $db;
         $this->inSession();
         $this->userController = new UserController($this->db);
         $this->logout();
@@ -62,14 +62,6 @@ class AdminController
     public function deleteUser()
     {
         $this->userController->deleteUser();
-    }
-
-    private function connectDatabase()
-    {
-        require_once '../app/model/database.php';
-
-        $database = new MySQLDatabase();
-        $this->db = $database->connect();
     }
 
     private function inSession()
