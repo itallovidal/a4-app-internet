@@ -19,7 +19,7 @@ class AdminController
 
     public function index()
     {
-        header('Location: ' . base_url('admin/products'));
+        header('Location: ' . base_url('admin/login'));
     }
 
     public function products()
@@ -59,9 +59,9 @@ class AdminController
         $this->userController->editUser($id);
     }
 
-    public function deleteUser($id)
+    public function deleteUser()
     {
-        $this->userController->deleteUser($id);
+        $this->userController->deleteUser();
     }
 
     private function connectDatabase()
@@ -123,7 +123,7 @@ class AdminController
                 'email' => $user->getEmail()
             ];
             $_SESSION['last_time'] = time();
-            header('Location: ' . base_url('admin'));
+            header('Location: ' . base_url('admin/products'));
             exit();
         }
         require_once '../app/views/login.php';

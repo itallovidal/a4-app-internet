@@ -37,15 +37,16 @@
                     <tbody>
                         <?php foreach ($usersList as $user): ?>
                             <tr>
-                                <td><?= $user->getId() ?></td>
+                                <?php $userID = $user->getId(); ?>
+                                <td><?= $userID ?></td>
                                 <td><?= $user->getName() ?></td>
                                 <td><?= $user->getEmail() ?></td>
                                 <td><?= $user->getPassword() ?></td>
                                 <td class="flex-row flex-center">
-                                    <a href="<?php echo base_url('home'); ?>" class="btn-danger icon-button">
+                                    <a href="<?= base_url("admin/deleteUser?remove=$userID"); ?>" class="btn-danger icon-button">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
-                                    <a href="<?php echo base_url('home'); ?>" class="icon-button">
+                                    <a href="<?= base_url('home'); ?>" class="icon-button">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>

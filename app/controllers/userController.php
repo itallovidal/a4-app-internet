@@ -56,9 +56,13 @@ class UserController
         }
     }
 
-    public function deleteUser($id)
+    public function deleteUser()
     {
-        $this->usersDAO->deleteUser($id);
+        if (isset($_GET['remove'])) {
+            $id = $_GET['remove'];
+            $this->usersDAO->deleteUser($id);
+        }
+        
         header('Location: ' . base_url('admin/users'));
     }
 
