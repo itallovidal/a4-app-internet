@@ -82,6 +82,7 @@ a.btn-danger {
 
 .flex-between {
     justify-content: space-between;
+    align-items: center;
 }
 
 a.btn-secondary,
@@ -183,11 +184,14 @@ p.text-small {
 }
 
 main {
-    margin-top: 20px;
+    margin-top: 80px !important;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    padding-block: 4rem;
+    /* gap: 4rem; */
+}
+
+main>article {
+    margin-block: 2rem;
 }
 
 
@@ -199,13 +203,16 @@ main {
 
 /* topnavar */
 
-#navbar-wrapper {
+#navbar-wrapper,
+#navbar-mobile {
     position: fixed;
     top: 0;
     width: 100%;
     padding-block: 1rem;
     background-color: var(--primary-color);
     z-index: 1;
+    height: 80px;
+    left: 0;
 }
 
 #navbar-wrapper #top-navbar {
@@ -220,7 +227,36 @@ main {
     right: 15px;
 }
 
-@media(max-width: 500px) {
+#navbar-mobile,
+.close-mobile-nav {
+    display: none;
+    padding: 1rem;
+}
+
+@media(max-width: 600px) {
+
+    #navbar-mobile,
+    .close-mobile-nav {
+        display: flex;
+    }
+
+    #navbar-wrapper {
+        height: 100%;
+        width: 60%;
+        transform: translateX(-200%);
+        transition: transform 500ms;
+    }
+
+    #navbar-wrapper.toggled {
+        transform: translateX(0%) !important;
+        z-index: 1000;
+    }
+
+    #navbar-wrapper #top-navbar {
+        flex-direction: column;
+        align-items: start;
+    }
+
     #navbar-wrapper #top-navbar {
         justify-content: center;
     }
@@ -268,8 +304,10 @@ footer {
 footer>div {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
-    padding: 5rem 2rem;
+    align-items: center;
+    /* padding: 5rem 2rem; */
+    /* background-color: blue; */
+    height: 30vh;
 }
 
 footer>div .logo-wrapper {
@@ -294,8 +332,8 @@ footer>div nav {
 }
 
 .news-card {
-    width: 100%;
-    max-width: calc(300px - .5rem);
+    width: calc(300px - 1rem);
+    /* min-width: calc(180px - .5rem); */
     background-color: var(--background-color);
     border-radius: 8px;
     overflow: hidden;
@@ -362,4 +400,32 @@ input {
     border: 1px solid var(--secondary-color);
     width: 20rem;
     font-size: 1rem;
+}
+
+/* admin container */
+
+.admin-container {
+    gap: 2rem;
+    flex-direction: row;
+    display: flex;
+    height: 100vh;
+}
+
+.admin-container main {
+    width: 100%;
+}
+
+@media(max-width: 600px) {
+    .admin-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .nav-admin div {
+        flex-direction: row;
+    }
+
+    .nav-admin div i {
+        display: none;
+    }
 }

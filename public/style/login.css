@@ -1,1 +1,7 @@
 @import url('./global.css');
+
+.login-page {
+    height: 70vh;
+    margin-top: 0px;
+    display: flex;
+}
