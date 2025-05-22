@@ -1,8 +1,16 @@
 <nav class="flex-column nav-admin flex-center">
-    <a class="text-regular btn-primary" href="<?php echo base_url('admin/products'); ?>">Produtos</a>
-    <a class="text-regular btn-primary" href="<?php echo base_url('admin/news'); ?>">Novidades</a>
-    <a class="text-regular btn-primary" href="<?php echo base_url('admin/users'); ?>">Admins</a>
-    <div>
-        <a class="text-regular btn-danger" href="?logout">Sair</a>
+    <div class="flex-column flex-start">
+        <a class="text-regular btn-ghost" href="<?php echo base_url('admin/products'); ?>">
+            <i class="fa-solid fa-ice-cream"></i>
+            Produtos</a>
+        <a class="text-regular btn-ghost" href="<?php echo base_url('admin/news'); ?>">
+            <i class="fa-solid fa-newspaper"></i>
+            Novidades</a>
+        <a class="text-regular btn-ghost" href="<?php echo base_url('admin/users'); ?>">
+            <i class="fa-solid fa-user"></i>
+            Admins</a>
+        <a class="text-regular btn-ghost" href="?logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Sair</a>
     </div>
 </nav>
