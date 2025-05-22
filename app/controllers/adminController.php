@@ -12,12 +12,9 @@ class AdminController
     public function __construct()
     {
         $this->connectDatabase();
+        $this->inSession();
         $this->userController = new UserController($this->db);
         $this->logout();
-
-        if ($_GET['url'] != 'admin/login') {
-            $this->inSession();
-        }
     }
 
     public function index()
@@ -77,7 +74,16 @@ class AdminController
 
     private function inSession()
     {
+        if ($_GET['url'] == 'admin/login') {
+            return;
+        }
+
         session_start();
+
+        if (!isset($_SESSION['user'])) {
+            header('Location: ' . base_url('admin/login'));
+            exit();
+        }
 
         $maxTime = 120;
         if (isset($_SESSION['last_time']) && (time() - $_SESSION['last_time']) > $maxTime) {
