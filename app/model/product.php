@@ -6,15 +6,15 @@ class Product
     private $name;
     private $description;
     private $price;
-    private $imageUrl;
+    private $imageSrc;
 
-    public function __construct($id, $name, $description, $price, $imageUrl)
+    public function __construct($id, $name, $description, $price, $imageSrc)
     {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->price = $price;
-        $this->imageUrl = $imageUrl;
+        $this->imageSrc = $imageSrc;
     }
 
     public function getId()
@@ -35,6 +35,6 @@ class Product
     }
     public function imageSrc()
     {
-        return $this->imageUrl;
+        return $this->imageSrc;
     }
 }

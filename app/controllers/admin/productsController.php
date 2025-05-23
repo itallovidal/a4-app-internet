@@ -25,6 +25,21 @@ class ProductsController extends AdminController
         require_once '../app/views/admin/products.php';
     }
 
+    public function create()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $price = $_POST['price'];
+            $imageSrc = $_POST['imageSrc'];
+
+            // TODO: Modificar para criar um objeto User e passar para o DAO
+            $this->productsDAO->createProduct($name, $description, $price, $imageSrc);
+            header('Location: ' . base_url('admin/products'));
+        }
+        require_once '../app/views/forms/products.php';
+    }
+    
     public function delete()
     {
         if (isset($_GET['id'])) {

@@ -27,6 +27,30 @@ class ProductsDAO
         }
     }
 
+    public function createProduct($name, $description, $price, $imageSrc)
+    {
+        $sql = "SELECT COUNT(*) FROM icecream WHERE name = :name";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':name', $name);
+        $stmt->execute();
+
+        if ($stmt->fetchColumn() > 0) {
+            throw new Exception("Produto já cadastrado");
+        }
+
+        $sql = "INSERT INTO icecream (name, description, price, imageSrc) VALUES (:name, :description, :price, :imageSrc)";
+        $statment = $this->db->prepare($sql);
+        $statment->bindValue(':name', $name);
+        $statment->bindValue(':description', $description);
+        $statment->bindValue(':price', $price);
+        $statment->bindValue(':imageSrc', $imageSrc);
+
+        if (!$statment->execute()) {
+            $errorInfo = $statment->errorInfo();
+            throw new Exception("Erro ao inserir produto: " . $errorInfo[2]);
+        }
+    }
+
     public function delete(int $id)
     {
         try {

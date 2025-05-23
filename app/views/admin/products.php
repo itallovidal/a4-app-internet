@@ -20,7 +20,7 @@
             <article class="content-wrapper-size admin">
                 <div class="flex-row flex-between">
                     <h2 class="heading">Gerenciar Produtos</h2>
-                    <a class="btn-primary" href="<?php echo base_url('home'); ?>">Adicionar Produto</a>
+                    <a class="btn-primary" href="<?php echo base_url('admin/products/create'); ?>">Adicionar Produto</a>
                 </div>
                 <p class="text-small">Adicione, edite ou remova produtos do site.</p>
                 <div class="table-wrapper">
