@@ -26,6 +26,10 @@
                     <a class="btn-primary" href="<?php echo base_url('admin/users/create'); ?>">Adicionar Admin</a>
                 </div>
                 <p class="text-small">Adicione, edite ou remova admins do sistema.</p>
+                    <?php if (isset($_SESSION['error'])): ?>
+                        <p class="text-small" style="color: red"><?php echo $_SESSION['error']; ?></p>
+                        <?php unset($_SESSION['error']); ?>
+                    <?php endif; ?>
                 <div class="table-wrapper">
                     <table>
                         <thead>

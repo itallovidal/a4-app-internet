@@ -32,7 +32,7 @@ class LoginController extends AdminController
             // Inicie a sessão e armazene os dados do usuário
             session_start();
             $_SESSION['user'] = [
-
+                'id' => $user->getId(),
                 'name' => $user->getName(),
                 'email' => $user->getEmail()
             ];

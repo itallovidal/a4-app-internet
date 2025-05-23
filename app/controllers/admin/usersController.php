@@ -58,11 +58,20 @@ class usersController extends AdminController
 
     public function delete()
     {
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
-            $this->usersDAO->deleteUser($id);
+        if (!isset($_GET['id'])) {
+            header('Location: ' . base_url('admin/users'));
+            return;
         }
 
+        $id = $_GET['id'];
+
+        if ($id == $_SESSION['user']['id']) {
+            $_SESSION['error'] = 'Você não pode excluir a si mesmo!';
+            header('Location: ' . base_url('admin/users'));
+            return;
+        }
+
+        $this->usersDAO->deleteUser($id);
         header('Location: ' . base_url('admin/users'));
     }
 }
