@@ -23,14 +23,14 @@
             <h1 class="heading">Nossos Sorvetes</h1>
 
             <div class="card-list">
-                <?php foreach ($productList as $icecream): ?>
+                <?php foreach ($productList as $product): ?>
                     <div class="icecream-card-wrapper">
                         <picture>
-                            <img src="<?= $icecream->imageSrc() ?>" alt="">
+                            <img src="<?= $product->imageSrc() ?>" alt="">
                         </picture>
                         <div class="card-footer">
-                            <p class="text-regular"><?= $icecream->getName() ?></p>
-                            <p class="text-regular"><?= $icecream->getPrice() ?></p>
+                            <p class="text-regular"><?= $product->getName() ?></p>
+                            <p class="text-regular"><?= $product->getPrice() ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>

@@ -15,14 +15,14 @@
             <h1 class="heading">Ultimos Lançamentos</h1>
 
             <div class="card-list-preview">
-                <?php foreach ($newerIcecreams as $icecream): ?>
+                <?php foreach ($newerProducts as $product): ?>
                     <div class="card-preview">
                         <picture>
-                            <img src="<?= $icecream->imageSrc() ?>" alt="">
+                            <img src="<?= $product->imageSrc() ?>" alt="">
                         </picture>
                         <div class="card-content news-wrapper">
-                            <h1><?= $icecream->getName() ?></h1>
-                            <p class="text-regular content-wrapper-size"><?= $icecream->getDescription() ?></p>
+                            <h1><?= $product->getName() ?></h1>
+                            <p class="text-regular content-wrapper-size"><?= $product->getDescription() ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -32,21 +32,21 @@
         <article class="news-wrapper content-wrapper-size">
             <h1 class="heading">Novidades</h1>
             <div class="news-list">
-            <?php foreach ($newerNews as $new): ?>
-                <div class="news-card">
-                    <picture>
-                        <img src="<?= $new->imageSrc() ?>" alt="">
-                    </picture>
-                    <div class="card-content">
-                        <h1><?= $new->getName() ?></h1>
-                        <p class="text-description text-regular"><?= $new->getDescription() ?></p>
+                <?php foreach ($newerNews as $new): ?>
+                    <div class="news-card">
+                        <picture>
+                            <img src="<?= $new->imageSrc() ?>" alt="">
+                        </picture>
+                        <div class="card-content">
+                            <h1><?= $new->getName() ?></h1>
+                            <p class="text-description text-regular"><?= $new->getDescription() ?></p>
 
-                        <a class="btn-primary" href=""> Ver mais
-                            <i class="fas fa chevron-right"></i>
-                        </a>
+                            <a class="btn-primary" href=""> Ver mais
+                                <i class="fas fa chevron-right"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
             </div>
         </article>
 

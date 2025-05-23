@@ -7,7 +7,7 @@ class ProductsController
 
     public function products()
     {
-        require_once '../app/model/icecream.php';
+        require_once '../app/model/product.php';
         require_once '../app/dao/productsDAO.php';
         require_once '../app/model/database.php';
         $database = new MySQLDatabase();

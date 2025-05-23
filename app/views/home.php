@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <?php include 'partials/head.php'; ?>
     <link rel="stylesheet" href="<?= base_url('style/index.css') ?>">
     <title>Página Inicial</title>
 </head>
+
 <body>
     <?php include 'partials/navbar.php'; ?>
 
@@ -23,14 +25,14 @@
 
             <div class="card-list">
 
-                <?php foreach ($newerIcecreams as $icecream): ?>
+                <?php foreach ($newerProducts as $product): ?>
                     <div class="icecream-card-wrapper">
                         <picture>
-                            <img src="<?= $icecream->imageSrc() ?>" alt="">
+                            <img src="<?= $product->imageSrc() ?>" alt="">
                         </picture>
                         <div class="card-footer">
-                            <p class="text-regular"><?= $icecream->getName() ?></p>
-                            <p class="text-regular"><?= $icecream->getPrice() ?></p>
+                            <p class="text-regular"><?= $product->getName() ?></p>
+                            <p class="text-regular"><?= $product->getPrice() ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -66,4 +68,5 @@
 
     <?php include 'partials/footer.php'; ?>
 </body>
+
 </html>
