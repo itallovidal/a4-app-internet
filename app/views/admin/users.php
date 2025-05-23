@@ -46,7 +46,7 @@
                                     <td><?= $user->getEmail() ?></td>
                                     <td><?= $user->getPassword() ?></td>
                                     <td class="flex-row flex-center">
-                                        <a href="<?= base_url("admin/deleteUser?remove=$userID"); ?>" class="btn-danger icon-button">
+                                        <a href="<?= base_url("admin/users/delete?id=$userID"); ?>" class="btn-danger icon-button">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                         <a href="<?= base_url('home'); ?>" class="icon-button">
