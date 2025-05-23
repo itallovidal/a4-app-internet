@@ -21,7 +21,7 @@
             <article class="content-wrapper-size admin">
                 <div class="flex-row flex-between">
                     <h2 class="heading">Gerenciar Novidades</h2>
-                    <a class="btn-primary" href="<?php echo base_url('home'); ?>">Adicionar Novidade</a>
+                    <a class="btn-primary" href="<?php echo base_url('admin/news/create'); ?>">Adicionar Novidade</a>
                 </div>
                 <p class="text-small">Adicione, edite ou remova novidades do site.</p>
                 <div class="table-wrapper">

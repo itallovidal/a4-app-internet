@@ -31,7 +31,7 @@ class usersController extends AdminController
             $this->usersDAO->createUser($name, $email, $password);
             header('Location: ' . base_url('admin/users'));
         }
-        require_once '../app/views/users/form/createForm.php';
+        require_once '../app/views/forms/users.php';
     }
 
     public function edit($id)
