@@ -1,11 +1,17 @@
 <?php
 require_once __DIR__ .  '/adminController.php';
 
-class NewsController extends AdminController {
+require_once '../app/dao/newsDAO.php';
+require_once '../app/model/news.php';
+
+class NewsController extends AdminController
+{
+    private $newsDAO;
 
     public function __construct(PDO $db)
     {
         parent::__construct($db); // Chama o banco, inSession() e logout()
+        $this->newsDAO = new NewsDAO($this->db);
     }
 
     public function news()
@@ -17,5 +23,15 @@ class NewsController extends AdminController {
         $NewsList = $this->newsDAO->getNews();
 
         require_once '../app/views/admin/news.php';
+    }
+
+    public function delete()
+    {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $this->newsDAO->delete($id);
+        }
+
+        header('Location: ' . base_url('admin/news'));
     }
 }

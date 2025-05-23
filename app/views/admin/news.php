@@ -39,7 +39,7 @@
                                     <td><?= $news->getName() ?></td>
                                     <td><?= $news->getDescription() ?></td>
                                     <td class="flex-row flex-center">
-                                        <a href="<?php echo base_url('home'); ?>" class="btn-danger icon-button">
+                                        <a href="<?= base_url("admin/news/delete?id=" . $news->getId()); ?>" class="btn-danger icon-button">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                         <a href="<?php echo base_url('home'); ?>" class="icon-button">
