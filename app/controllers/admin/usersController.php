@@ -34,25 +34,20 @@ class usersController extends AdminController
         require_once '../app/views/forms/users.php';
     }
 
-    public function edit($id)
+    public function update($id)
     {
-        $userResult = $this->usersDAO->getUserById($id);
-        if ($userResult['status'] == 200) {
-            $user = $userResult['user'];
-
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $name = $_POST['name'];
                 $email = $_POST['email'];
-                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-                $updatedUser = new User($name, $email, $password);
-                $this->usersDAO->updateUser($id, $updatedUser);
+                $password = $_POST['password'];
+            
+                $this->usersDAO->updateUser($id, $name, $email, $password);
                 header('Location: ' . base_url('admin/users'));
-            }
-
-            require_once '../app/views/admin/edit_user.php';
-        } else {
-            header('Location: ' . base_url('admin/users'));
+        }
+        require_once '../app/views/forms/update.php';
         }
     }
 

@@ -46,7 +46,7 @@
                                         <a href="<?= base_url("admin/users/delete?id=" . $user->getId()); ?>" class="btn-danger icon-button">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
-                                        <a href="<?= base_url('home'); ?>" class="icon-button">
+                                        <a href="<?= base_url('admin/users/update?id=' . $user->getId()); ?>" class="icon-button">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                     </td>

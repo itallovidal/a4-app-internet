@@ -80,14 +80,14 @@ class UsersDAO
         }
     }
 
-    public function updateUser(int $id, User $user)
+    public function updateUser($id, $name, $email, $password)
     {
         try {
             $sql = "UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id";
             $statment = $this->db->prepare($sql);
-            $statment->bindValue(':name', $user->getName());
-            $statment->bindValue(':email', $user->getEmail());
-            $statment->bindValue(':password', $user->getPassword());
+            $statment->bindValue(':name', $name);
+            $statment->bindValue(':email', $email);
+            $statment->bindValue(':password', $password);
             $statment->bindValue(':id', $id, PDO::PARAM_INT);
             $statment->execute();
 
