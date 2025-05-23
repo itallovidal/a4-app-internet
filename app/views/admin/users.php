@@ -30,7 +30,6 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Nome</th>
                                 <th>E-mail</th>
                                 <th>Senha</th>
@@ -40,7 +39,6 @@
                         <tbody>
                             <?php foreach ($usersList as $user): ?>
                                 <tr>
-                                    <td><?= $userID ?></td>
                                     <td><?= $user->getName() ?></td>
                                     <td><?= $user->getEmail() ?></td>
                                     <td><?= $user->getPassword() ?></td>

@@ -34,13 +34,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($icecreamList as $icecream): ?>
+                            <?php foreach ($productList as $product): ?>
                                 <tr>
-                                    <td><?= $icecream->getName() ?></td>
-                                    <td><?= $icecream->getDescription() ?></td>
-                                    <td>R$<?= $icecream->getPrice() ?></td>
+                                    <td><?= $product->getName() ?></td>
+                                    <td><?= $product->getDescription() ?></td>
+                                    <td>R$<?= $product->getPrice() ?></td>
                                     <td class="flex-row flex-center">
-                                        <a href="<?php echo base_url('admin/products/delete?id=' . $icecream->getId()); ?>" class="btn-danger icon-button">
+                                        <a href="<?php echo base_url('admin/products/delete?id=' . $product->getId()); ?>" class="btn-danger icon-button">
 
                                             <i class="fas fa-trash-alt"></i>
                                         </a>

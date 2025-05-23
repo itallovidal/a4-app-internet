@@ -23,7 +23,7 @@
             <h1 class="heading">Nossos Sorvetes</h1>
 
             <div class="card-list">
-                <?php foreach ($icecreamList as $icecream): ?>
+                <?php foreach ($productList as $icecream): ?>
                     <div class="icecream-card-wrapper">
                         <picture>
                             <img src="<?= $icecream->imageSrc() ?>" alt="">

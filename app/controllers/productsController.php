@@ -1,21 +1,23 @@
 <?php
 
-class ProductsController{
+class ProductsController
+{
     private $db;
-    private $icecreamDAO;
+    private $productsDAO;
 
-    public function products(){
+    public function products()
+    {
         require_once '../app/model/icecream.php';
-        require_once '../app/dao/icecreamDAO.php';
+        require_once '../app/dao/productsDAO.php';
         require_once '../app/model/database.php';
         $database = new MySQLDatabase();
         $this->db = $database->connect();
-        $this->icecreamDAO = new IcecreamDAO($this->db);
+        $this->productsDAO = new ProductsDAO($this->db);
 
-        $icecreamList = $this->icecreamDAO->getIcecreams();
+        $productList = $this->productsDAO->getProducts();
 
-        
 
-        require_once '../app/views/products.php';
+
+        require_once '../app/views/product.php';
     }
 }

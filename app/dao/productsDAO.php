@@ -1,6 +1,6 @@
 <?php
 
-class IcecreamDAO
+class ProductsDAO
 {
     private $db;
 
@@ -9,19 +9,19 @@ class IcecreamDAO
         $this->db = $db;
     }
 
-    public function getIcecreams($limit = 25)
+    public function getProducts($limit = 25)
     {
         try {
             $sql = "SELECT * FROM icecream ORDER BY id DESC LIMIT $limit";
             $statment = $this->db->query($sql);
-            $icecreamFetched = $statment->fetchAll(PDO::FETCH_ASSOC);
+            $productsFetched = $statment->fetchAll(PDO::FETCH_ASSOC);
 
-            $icecreams = [];
-            foreach ($icecreamFetched as $icecream) {
-                array_push($icecreams, new Icecream($icecream['id'], $icecream['name'], $icecream['description'], $icecream['price'], $icecream['imageSrc']));
+            $productList = [];
+            foreach ($productsFetched as $product) {
+                array_push($productList, new Product($product['id'], $product['name'], $product['description'], $product['price'], $product['imageSrc']));
             }
 
-            return $icecreams;
+            return $productList;
         } catch (Exception $e) {
             throw new Exception("Erro ao buscar os sorvetes: " . $e->getMessage());
         }
