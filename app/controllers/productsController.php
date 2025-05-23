@@ -4,10 +4,6 @@ class ProductsController{
     private $db;
     private $icecreamDAO;
 
-    public function index(){
-        $this->products();
-    }
-
     public function products(){
         require_once '../app/model/icecream.php';
         require_once '../app/dao/icecreamDAO.php';

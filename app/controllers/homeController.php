@@ -4,11 +4,6 @@ class HomeController{
     private $db;
     private $icecreamDAO;
 
-
-    public function index(){
-        $this->home();
-    }
-
     public function home(){
         require_once '../app/model/icecream.php';
         require_once '../app/dao/icecreamDAO.php';

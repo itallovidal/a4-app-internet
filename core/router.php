@@ -1,28 +1,41 @@
 <?php
 
 class Router {
-    // Entidades que precisam de conexão com banco
-    private $dbEntities = ['user', 'admin', 'product', 'news', 'icecream'];
-    
+    private $dbEntities = ['users', 'admin', 'login', 'products', 'news', 'icecream'];
+
     public function run() {
         require_once __DIR__ . '/helper.php';
-        $url = isset($_GET['url']) ? $_GET['url'] : 'home/index';
-        
-        // Divide a URL: [entidade, ação, parâmetro]
+        $url = isset($_GET['url']) ? $_GET['url'] : 'home';
         $urlParts = explode('/', $url);
-        $entity = $urlParts[0];
-        $action = isset($urlParts[1]) ? $urlParts[1] : 'index';
+
+        $entity = $urlParts[0]; // Pode ser pasta ou entidade simples
+        $action = isset($urlParts[1]) ? $urlParts[1] : $urlParts[0];
         $param = isset($urlParts[2]) ? $urlParts[2] : null;
-        
-        // Nome do controller (primeira letra maiúscula + Controller)
-        $controllerName = ucfirst($entity) . 'Controller';
-        $controllerFile = "../app/controllers/{$entity}Controller.php";
-        
+
+        // Verifica se existe uma pasta com o nome da entidade
+        $directoryPath = "../app/controllers/{$entity}";
+
+        if (is_dir($directoryPath)) {
+            // Se for uma pasta, o controller está dentro dela
+            $controllerName = ucfirst($action) . 'Controller';
+            $controllerFile = "{$directoryPath}/{$action}Controller.php";
+
+            $finalEntity = $action; // A entidade, nesse caso, é o nome do controller dentro da pasta
+
+            $action = isset($urlParts[2]) ? $urlParts[2] : (isset($urlParts[1]) ? $urlParts[1] : $urlParts[0]);
+            // $param = isset($urlParts[3]) ? $urlParts[3] : $urlParts[1];
+        } else {
+            // Se não for uma pasta, segue o fluxo padrão
+            $controllerName = ucfirst($entity) . 'Controller';
+            $controllerFile = "../app/controllers/{$entity}Controller.php";
+
+            $finalEntity = $entity;
+        }
+
         if (file_exists($controllerFile)) {
             require_once $controllerFile;
-            
-            // Verifica se a entidade precisa de conexão com o banco
-            if (in_array($entity, $this->dbEntities)) {
+
+            if (in_array($finalEntity, $this->dbEntities)) {
                 require_once '../app/model/database.php';
                 $database = new MySQLDatabase();
                 $db = $database->connect();
@@ -30,10 +43,8 @@ class Router {
             } else {
                 $controller = new $controllerName();
             }
-            
-            // Verifica se o método existe
+
             if (method_exists($controller, $action)) {
-                // Chama o método com ou sem parâmetro
                 if ($param !== null) {
                     $controller->$action($param);
                 } else {
@@ -42,9 +53,10 @@ class Router {
                 return;
             }
         }
-        
+
         // Página não encontrada
         http_response_code(404);
         echo "Página não encontrada";
     }
 }
+

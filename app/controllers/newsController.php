@@ -8,11 +8,6 @@ class NewsController
 
     private $newsDAO;
 
-    public function index()
-    {
-        $this->news();
-    }
-
     public function news()
     {
         require_once '../app/model/database.php';
