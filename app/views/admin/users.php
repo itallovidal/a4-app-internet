@@ -23,7 +23,7 @@
             <article class="content-wrapper-size admin">
                 <div class="flex-row flex-between">
                     <h2 class="heading">Gerenciar Admins</h2>
-                    <a class="btn-primary" href="<?php echo base_url('admin/createUser'); ?>">Adicionar Admin</a>
+                    <a class="btn-primary" href="<?php echo base_url('admin/users/create'); ?>">Adicionar Admin</a>
                 </div>
                 <p class="text-small">Adicione, edite ou remova admins do sistema.</p>
                 <div class="table-wrapper">

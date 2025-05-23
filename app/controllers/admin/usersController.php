@@ -20,7 +20,7 @@ class usersController extends AdminController
         require_once '../app/views/admin/users.php';
     }
 
-    public function createUser()
+    public function create()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $name = $_POST['name'];
