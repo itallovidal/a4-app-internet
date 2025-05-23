@@ -25,6 +25,19 @@ class NewsController extends AdminController
         require_once '../app/views/admin/news.php';
     }
 
+    public function create()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $imageSrc = $_POST['imageSrc'];
+
+            $this->newsDAO->create($name, $description, $imageSrc);
+            header('Location: ' . base_url('admin/news'));
+        }
+        require_once '../app/views/forms/news.php';
+    }
+
     public function delete()
     {
         if (isset($_GET['id'])) {

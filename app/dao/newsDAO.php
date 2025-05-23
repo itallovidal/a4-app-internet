@@ -27,6 +27,27 @@ class NewsDAO
         }
     }
 
+    public function create($name, $description, $imageSrc)
+    {
+        $sql = "SELECT COUNT(*) FROM news WHERE name = :name";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':name', $name);
+        $stmt->execute();
+
+        if ($stmt->fetchColumn() > 0) {
+            throw new Exception("Nome já cadastrado");
+        }
+        $sql = "INSERT INTO news (name, description, imageSrc) VALUES (:name, :description, :imageSrc)";
+        $statment = $this->db->prepare($sql);
+        $statment->bindValue(':name', $name);
+        $statment->bindValue(':description', $description);
+        $statment->bindValue(':imageSrc', $imageSrc);
+        if (!$statment->execute()) {
+            $errorInfo = $statment->errorInfo();
+            throw new Exception("Erro ao inserir noticia: " . $errorInfo[2]);
+        }
+    }
+
     public function delete(int $id)
     {
         try {

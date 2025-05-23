@@ -4,13 +4,13 @@ class News {
     private $id;
     private $name;
     private $description;
-    private $imageUrl;
+    private $imageSrc;
 
-    public function __construct($id, $name, $description, $imageUrl) {
+    public function __construct($id, $name, $description, $imageSrc) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
-        $this->imageUrl = $imageUrl;
+        $this->imageSrc = $imageSrc;
     }
 
     public function getId() {
@@ -23,6 +23,6 @@ class News {
         return $this->description;
     }
     public function imageSrc() {
-        return $this->imageUrl;
+        return $this->imageSrc;
     }
 }

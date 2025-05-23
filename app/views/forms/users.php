@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 
 <head>
-    <?php include dirname(__DIR__, 2) . '/partials/head.php'; ?>
+    <?php include dirname(__DIR__, 1) . '/partials/head.php'; ?>
     <link rel="stylesheet" href="<?= base_url('style/admin.css') ?>">
     <title>Página administração de Usuários</title>
 </head>
