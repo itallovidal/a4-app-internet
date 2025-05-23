@@ -12,7 +12,7 @@ class LoginController extends AdminController
 
     public function login()
     {
-        require_once '../app/model/users.php';
+        require_once '../app/model/user.php';
         require_once '../app/dao/usersDAO.php';
 
         $this->usersDAO = new UsersDAO($this->db);

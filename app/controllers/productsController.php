@@ -18,6 +18,6 @@ class ProductsController
 
 
 
-        require_once '../app/views/product.php';
+        require_once '../app/views/products.php';
     }
 }

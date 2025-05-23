@@ -1,5 +1,5 @@
 <?php
-require_once '../app/model/users.php';
+require_once '../app/model/user.php';
 class UsersDAO
 {
     private PDO $db;
@@ -42,7 +42,8 @@ class UsersDAO
     }
 
     // TODO: Modificar para receber um objeto do tipo User
-    public function createUser($name, $email, $password) {
+    public function createUser($name, $email, $password)
+    {
         $sql = "SELECT COUNT(*) FROM users WHERE email = :email";
         $stmt = $this->db->prepare($sql);
         $stmt->bindValue(':email', $email);

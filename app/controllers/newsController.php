@@ -4,7 +4,7 @@ class NewsController
 {
     private $db;
 
-    private $icecreamDAO;
+    private $productsDAO;
 
     private $newsDAO;
 
@@ -13,12 +13,12 @@ class NewsController
         require_once '../app/model/database.php';
 
         require_once '../app/model/icecream.php';
-        require_once '../app/dao/icecreamDAO.php';
+        require_once '../app/dao/productsDAO.php';
         $database = new MySQLDatabase();
         $this->db = $database->connect();
-        $this->icecreamDAO = new IcecreamDAO($this->db);
+        $this->productsDAO = new ProductsDAO($this->db);
 
-        $newerIcecreams = $this->icecreamDAO->getIcecreams(2);
+        $newerIcecreams = $this->productsDAO->getProducts(2);
 
 
         require_once '../app/model/news.php';

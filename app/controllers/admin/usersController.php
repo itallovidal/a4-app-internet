@@ -2,7 +2,7 @@
 require_once __DIR__ .  '/adminController.php';
 
 require_once '../app/dao/usersDAO.php';
-require_once '../app/model/users.php';
+require_once '../app/model/user.php';
 
 class usersController extends AdminController
 {
