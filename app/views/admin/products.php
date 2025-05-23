@@ -40,7 +40,8 @@
                                     <td><?= $icecream->getDescription() ?></td>
                                     <td>R$<?= $icecream->getPrice() ?></td>
                                     <td class="flex-row flex-center">
-                                        <a href="<?php echo base_url('home'); ?>" class="btn-danger icon-button">
+                                        <a href="<?php echo base_url('admin/products/delete?id=' . $icecream->getId()); ?>" class="btn-danger icon-button">
+
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                         <a href="<?php echo base_url('home'); ?>" class="icon-button">

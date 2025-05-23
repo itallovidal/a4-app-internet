@@ -40,13 +40,12 @@
                         <tbody>
                             <?php foreach ($usersList as $user): ?>
                                 <tr>
-                                    <?php $userID = $user->getId(); ?>
                                     <td><?= $userID ?></td>
                                     <td><?= $user->getName() ?></td>
                                     <td><?= $user->getEmail() ?></td>
                                     <td><?= $user->getPassword() ?></td>
                                     <td class="flex-row flex-center">
-                                        <a href="<?= base_url("admin/users/delete?id=$userID"); ?>" class="btn-danger icon-button">
+                                        <a href="<?= base_url("admin/users/delete?id=" . $user->getId()); ?>" class="btn-danger icon-button">
                                             <i class="fas fa-trash-alt"></i>
                                         </a>
                                         <a href="<?= base_url('home'); ?>" class="icon-button">

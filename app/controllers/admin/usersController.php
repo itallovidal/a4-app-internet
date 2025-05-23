@@ -34,7 +34,7 @@ class usersController extends AdminController
         require_once '../app/views/users/form/createForm.php';
     }
 
-    public function editUser($id)
+    public function edit($id)
     {
         $userResult = $this->usersDAO->getUserById($id);
         if ($userResult['status'] == 200) {
