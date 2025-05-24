@@ -55,13 +55,12 @@
 
         <article class="shop-wrapper">
             <div class="text-wrapper">
-                <h1 class="heading">Loja Nova!</h1>
-                <p class="text-regular">Na Fábrica de Delícias, acreditamos que cada sabor tem o poder de despertar memórias e criar novos momentos especiais. Produzimos nossos sorvetes com ingredientes selecionados, muito carinho e um toque de criatividade que transforma o simples em inesquecível. </p>
-                <p class="text-regular">Aqui, cada receita é pensada para encantar desde a primeira colherada até o último pedacinho. Nosso compromisso é entregar qualidade, frescor e um atendimento que faz você se sentir em casa.</p>
+                <h1 class="heading"><?= $news->getName(); ?></h1>
+                <p class="text-regular"><?= $news->getDescription(); ?></p>
                 <a href="<?= base_url('news'); ?>" class="btn-primary">Saiba mais</a>
             </div>
             <picture>
-                <img src="<?= base_url('assets/index_banner.jpg') ?>" alt="">
+                <img src="<?= $news->ImageSrc(); ?>" alt="">
             </picture>
         </article>
     </main>
