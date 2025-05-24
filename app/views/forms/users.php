@@ -30,7 +30,7 @@
 
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="password" name="password" id="password" placeholder="Insira a senha" value="<?= $id_exits ? $user->getPassword() : ''; ?> "required minlength="8">
+                    <input type="password" name="password" id="password" placeholder="Insira a senha" value="<?= $id_exits ? $user->getPassword() : ''; ?>"required minlength="8">
                 </div>
                 <div class="form-group">
                     <label for="password-confirmation">Confirmação de senha</label>
