@@ -34,10 +34,12 @@ class usersController extends AdminController
         require_once '../app/views/forms/users.php';
     }
 
-    public function update($id)
+    public function update()
     {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
+
+            $user = $this->usersDAO->getUserById($id);
             
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $name = $_POST['name'];
@@ -46,8 +48,8 @@ class usersController extends AdminController
             
                 $this->usersDAO->updateUser($id, $name, $email, $password);
                 header('Location: ' . base_url('admin/users'));
-        }
-        require_once '../app/views/forms/update.php';
+            }
+        require_once '../app/views/forms/users.php';
         }
     }
 
