@@ -12,7 +12,7 @@ class AdminController
 
     public function admin()
     {
-        header('Location: ' . base_url('admin/login'));
+        header('Location: ' . base_url('admin/products'));
     }
 
     private function inSession()

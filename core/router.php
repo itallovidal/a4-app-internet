@@ -1,41 +1,53 @@
 <?php
 
-class Router {
-    private $dbEntities = ['users', 'admin', 'login', 'products', 'news', 'icecream'];
+class Router
+{
+    // Lista de entidades que devem ser tratadas com acesso ao banco de dados
+    private $dbEntities = ['users', 'admin', 'login', 'products', 'news'];
 
-    public function run() {
+    public function run()
+    {
         require_once __DIR__ . '/helper.php';
-        $url = isset($_GET['url']) ? $_GET['url'] : 'home';
+
+        // Verifica se existe um parâmetro na URL, caso contrário, define como home
+        $url = $_GET['url'] ?? 'home';
+
         $urlParts = explode('/', $url);
 
-        $entity = $urlParts[0]; // Pode ser pasta ou entidade simples
-        $action = isset($urlParts[1]) ? $urlParts[1] : $urlParts[0];
-        $param = isset($urlParts[2]) ? $urlParts[2] : null;
+        $firstUrlPart = $urlParts[0];
+        $secondUrlPart = isset($urlParts[1]) ? $urlParts[1] : $urlParts[0];
 
-        // Verifica se existe uma pasta com o nome da entidade
-        $directoryPath = "../app/controllers/{$entity}";
+        // Verifica se existe uma pasta com o nome da primeira parte da url
+        $directoryPath = "../app/controllers/{$firstUrlPart}";
 
         if (is_dir($directoryPath)) {
-            // Se for uma pasta, o controller está dentro dela
-            $controllerName = ucfirst($action) . 'Controller';
-            $controllerFile = "{$directoryPath}/{$action}Controller.php";
 
-            $finalEntity = $action; // A entidade, nesse caso, é o nome do controller dentro da pasta
+            // Se for uma pasta, queremos acessar o controller de dentro dela
+            $controllerName = ucfirst($secondUrlPart) . 'Controller';
+            $controllerFile = "{$directoryPath}/{$secondUrlPart}Controller.php";
 
-            $action = isset($urlParts[2]) ? $urlParts[2] : (isset($urlParts[1]) ? $urlParts[1] : $urlParts[0]);
-            // $param = isset($urlParts[3]) ? $urlParts[3] : $urlParts[1];
+            $entity = $secondUrlPart; // A entidade, nesse caso, é o nome do controller dentro da pasta
+
+            $secondUrlPart_exits = isset($urlParts[1]); // Verifica se existe uma segunda parte na URL
+
+            // Verifica se existe uma terceira parte na URL, caso não exista, usa a segunda parte, e se não existir, usa a primeira parte
+            $thirdUrlPart = isset($urlParts[2]) ? $urlParts[2] : ($secondUrlPart_exits ? $urlParts[1] : $urlParts[0]);
+
+            $secondUrlPart = $thirdUrlPart; // Atualiza a segunda parte da URL para a terceira parte
         } else {
-            // Se não for uma pasta, segue o fluxo padrão
-            $controllerName = ucfirst($entity) . 'Controller';
-            $controllerFile = "../app/controllers/{$entity}Controller.php";
 
-            $finalEntity = $entity;
+            // Se não for uma pasta, segue o fluxo padrão
+            $controllerName = ucfirst($firstUrlPart) . 'Controller';
+            $controllerFile = "../app/controllers/{$firstUrlPart}Controller.php";
+
+            $entity = $firstUrlPart;
         }
 
         if (file_exists($controllerFile)) {
             require_once $controllerFile;
 
-            if (in_array($finalEntity, $this->dbEntities)) {
+            // Verifica se a classe precisa de acesso ao banco de dados
+            if (in_array($entity, $this->dbEntities)) {
                 require_once '../app/model/database.php';
                 $database = new MySQLDatabase();
                 $db = $database->connect();
@@ -44,12 +56,10 @@ class Router {
                 $controller = new $controllerName();
             }
 
-            if (method_exists($controller, $action)) {
-                if ($param !== null) {
-                    $controller->$action($param);
-                } else {
-                    $controller->$action();
-                }
+            // Verifica se existe um método na classe com o nome da segunda parte da URL
+            if (method_exists($controller, $secondUrlPart)) {
+                
+                $controller->$secondUrlPart();
                 return;
             }
         }
@@ -59,4 +69,3 @@ class Router {
         echo "Página não encontrada";
     }
 }
-
