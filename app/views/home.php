@@ -32,7 +32,7 @@
                         </picture>
                         <div class="card-footer">
                             <p class="text-regular"><?= $product->getName() ?></p>
-                            <p class="text-regular"><?= $product->getPrice() ?></p>
+                            <p class="text-regular"><span class="price-prefix">R$</span><?= $product->getPrice() ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>

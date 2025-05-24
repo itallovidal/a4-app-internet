@@ -183,6 +183,11 @@ p.text-small {
     line-height: 1.5;
 }
 
+span.price-prefix {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
 main {
     margin-top: 80px !important;
     display: flex;
