@@ -3,7 +3,7 @@
 class Router
 {
     // Lista de entidades que devem ser tratadas com acesso ao banco de dados
-    private $dbEntities = ['users', 'admin', 'login', 'products', 'news'];
+    private $dbEntities = ['home', 'products', 'news', 'admin', 'login', 'users'];
 
     public function run()
     {
