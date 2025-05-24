@@ -1,13 +1,13 @@
 <nav class="flex-column nav-admin flex-center">
     <div class="flex-column flex-start">
         <?php $url = $_GET['url']; ?>
-        <a class="text-regular <?= $url == 'admin/products' ? 'btn-secondary' : 'btn-ghost'; ?>" href="<?php echo base_url('admin/products'); ?>">
+        <a class="text-regular <?= $url == 'admin/products' ? 'btn-primary' : 'btn-ghost'; ?>" href="<?php echo base_url('admin/products'); ?>">
             <i class="fa-solid fa-ice-cream"></i>
             Produtos</a>
-        <a class="text-regular <?= $url == 'admin/news' ? 'btn-secondary' : 'btn-ghost'; ?>" href="<?php echo base_url('admin/news'); ?>">
+        <a class="text-regular <?= $url == 'admin/news' ? 'btn-primary' : 'btn-ghost'; ?>" href="<?php echo base_url('admin/news'); ?>">
             <i class="fa-solid fa-newspaper"></i>
             Novidades</a>
-        <a class="text-regular <?= $url == 'admin/users' ? 'btn-secondary' : 'btn-ghost'; ?>" href="<?php echo base_url('admin/users'); ?>">
+        <a class="text-regular <?= $url == 'admin/users' ? 'btn-primary' : 'btn-ghost'; ?>" href="<?php echo base_url('admin/users'); ?>">
             <i class="fa-solid fa-user"></i>
             Admins</a>
         <a class="text-regular btn-ghost" href="?logout">
